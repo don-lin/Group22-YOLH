@@ -5,7 +5,7 @@ app = Flask(__name__,static_folder='static')
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return send_from_directory('.','主页.html')
 
 @app.route('/map')
 def send_map():
