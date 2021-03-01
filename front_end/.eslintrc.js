@@ -18,6 +18,6 @@ module.exports = {
     'react'
   ],
   rules: {
-    'space-before-function-paren': false
+
   }
 }

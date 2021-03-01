@@ -1,8 +1,10 @@
 import React from 'react'
-function App() {
+import TestMap from './components/map/TestMap'
+function App () {
   return (
     <div>
-      Init
+
+      <TestMap />
     </div>
   )
 }
