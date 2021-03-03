@@ -13,12 +13,12 @@ const TestMap = (props) => {
     }
   }, [BMap])
   return (
-            <div>
-              <div id='bMap' style={{ width: 500, height: 500 }}></div>
-              <button onClick={() => { bMap.centerAndZoom('广州', 15) }}>广州</button>
-              <button onClick={() => { bMap.centerAndZoom('北京', 15) }}>北京</button>
-              <button onClick={() => { bMap.centerAndZoom('上海', 15) }}>上海</button>
-            </div>
+    <div>
+      <div id='bMap' style={{ width: 500, height: 500 }}></div>
+      <button onClick={() => { bMap.centerAndZoom('广州', 15) }}>广州</button>
+      <button onClick={() => { bMap.centerAndZoom('北京', 15) }}>北京</button>
+      <button onClick={() => { bMap.centerAndZoom('上海', 15) }}>上海</button>
+    </div>
   )
 }
 
