@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/Chart.min.js"></script>
+    <script src="js/httpRequest.js"></script>
+    <script src="js/Chart.utils.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      var chart = document.createElement("canvas");
+      chart.id = "test";
+      document.getElementById("root").appendChild(chart);
+
+      var line = new Line("test", [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+      ]);
+      line.appendLine("label", [1, 5, 3, 4, 5, 6, 7], "#111");
+    </script>
+  </body>
+</html>
