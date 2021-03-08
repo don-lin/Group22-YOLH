@@ -2,7 +2,7 @@
 
 This is the degree project of group 22
 
-### About our team &#x270C;
+### About our team
 #### group member
 
 | Name         |  BJUT ID |  UCD ID  |
@@ -11,6 +11,17 @@ This is the degree project of group 22
 | Lu Xingchen  | 16372231 | 16206520 |
 | Du Guanpu    | 16372222 | 16206793 |
 | Chen Zhengyao| 16372312 | 16206687 |
+
+### Description
+
+<hr>
+This is a system for analyzing the house data &#x1f600;. The main functions are visualizing data, predicting house prices, and help users to make decisions.
+<hr>
+<h3>Requirements</h3>
+<h5>To run this house data analyze online system, you need:<h5>
+<p>Python >= 3.9.2  &#x2705;</p>
+<p>Flask >= 1.1.2  &#x2705;</p>
+<p>PyTorch >= 1.6.0  &#x2705;</p>
 
 
 
