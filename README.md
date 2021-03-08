@@ -41,3 +41,32 @@ This repository provides data, document and code as follows.
     
     main.py                # the main program of this project 
 ```
+
+## Git Commands
+  
+Clone the repository
+```bash
+git init
+git clone https://github.com/don-lin/Group22-YOLH
+```
+
+Get the latest version
+```bash
+git pull
+```
+
+Commit a update to Github
+
+```bash
+git add ./
+git commit -m "update"
+git push -u origin master
+```
+
+## License
+
+Unlicense License. 
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
+
+See [`LICENSE.md`](LICENSE.md).
