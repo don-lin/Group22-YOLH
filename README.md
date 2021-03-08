@@ -24,16 +24,14 @@ This is a system for analyzing the house data &#x1f600;. The main functions are 
 <p>PyTorch >= 1.6.0  &#x2705;</p>
 
 
-
-How to run the project:
+### How to run the project?
 
 python main.py
 
 then enter: localhost:5000/map  to check the location convert function.
 
-
-This repository provides data and code as follows.
-
+### Introduction
+This repository provides data, document and code as follows.
 
 ```
     doc/                   # contains the documents
