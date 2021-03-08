@@ -1,5 +1,17 @@
-# Group22-YOLH
+## <center>Group 22 - You Look Only Half</center>
+
 This is the degree project of group 22
+
+### About our team &#x270C;
+#### group member
+
+| Name         |  BJUT ID |  UCD ID  |
+| ------------ |  ------  |  ------- |
+| Chen Donglin | 16372229 | 16206515 |
+| Lu Xingchen  | 16372231 | 16206520 |
+| Du Guanpu    | 16372222 | 16206793 |
+| Chen Zhengyao| 16372312 | 16206687 |
+
 
 
 How to run the project:
