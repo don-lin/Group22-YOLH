@@ -15,6 +15,10 @@ def send_map():
 def hot_map():
     return send_from_directory('.','热力地图.html')
 
+@app.route('/viewPort')
+def view_port():
+    return send_from_directory('.','经纬度.html')
+
 @app.route('/page/<path:temp>')
 def send_static_file(temp):
     print('hello!')
