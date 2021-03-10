@@ -11,6 +11,10 @@ def hello_world():
 def send_map():
     return send_from_directory('.','地址解析.html')
 
+@app.route('/hotmap')
+def hot_map():
+    return send_from_directory('.','热力地图.html')
+
 @app.route('/page/<path:temp>')
 def send_static_file(temp):
     print('hello!')
