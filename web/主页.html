@@ -110,6 +110,7 @@ body {
   }
 }
 </style>
+<script src='/page/js/httpRequest.js'></script>
 </head>
 <body>
 
@@ -165,6 +166,25 @@ body {
 <iframe src="/map" style="width:500px;height:500px"></iframe>
 <iframe src="/page/chart/test.html" style="width:500px;height:500px"></iframe>
 <iframe src="/hot" style="width:500px;height:500px"></iframe>
+
+
+<script>
+  function makeCraw(){
+    console.log('st')
+    src=document.querySelector('.lianjia-url').value
+    postData('/crawler/lianjia','src='+src,function(response){
+      document.querySelector('.craw-result').textContent=response
+    }) 
+  }
+</script>
+
+<br>
+<label>需要爬取的链家网址</label>
+<input class="lianjia-url" value='https://bj.lianjia.com/ershoufang/101108885741.html'>
+<button onclick="makeCraw();">开始爬取</button>
+<p class='craw-result'></p>
+
+
 
 <div class="footer">
   <h2>Group 22 have 4 memebers</h2>
