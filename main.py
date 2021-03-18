@@ -22,6 +22,15 @@ def send_hot_map():
 def send_hot2_map():
     return send_from_directory('web', '经纬度.html')
 
+@app.route('/index')
+def send_test_index():
+    return send_from_directory('web', 'index.html')
+
+
+@app.route('/search')
+def send_search_index():
+    return send_from_directory('web', '搜索.html')
+
 @app.route('/page/<path:temp>')
 def send_static_file(temp):
     return send_from_directory("web", temp)

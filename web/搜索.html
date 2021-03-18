@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--百度iocn图标-->
+    <link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon"/>
+    <title>百度一下,你就知道</title>
+    <style type="text/css">
+            body{/*清除浏览器自带样式*/
+                margin: 0;
+                padding: 0;
+            }
+            .box{/*最大的盒子*/
+                width: 100%;
+                /*background: yellow;*/
+                height: 636px;
+                background-image:url("https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/880.jpg?2");
+                background-size: 100%;
+
+            }
+            .box_log{/*log盒子*/
+                width: 100%;
+            }
+
+            .box_log img{/*百度log*/
+                width: 19.8%;
+                margin-left: 49.4%;
+                transform: translate(-50%);
+                margin-top: 38px;
+                margin-bottom: 19px;
+            }
+            .box_text{/*text搜索框盒子大小*/
+                width: 100%;
+                height: 36px;
+            }
+            .log_img{/*input框中的小相机*/
+                position: absolute;
+                left: 865px;
+                top: 202px;
+            }
+            #text{
+                width: 540px;
+                height: 36px;
+                box-sizing: border-box;
+                margin-left: 355px;
+                margin-top: 3px;
+                text-indent: 4px;
+            }
+            #btn{
+                width: 100px;
+                height: 36px;
+                background: #3385FF;
+                border: 0px;
+                letter-spacing: 1px;
+                color: white;
+                margin-left: -5px;
+                font-size: 15px;
+                box-sizing: border-box;
+                transform: translateY(2px);
+                box-sizing: border-box;
+            }
+            #btn:hover{
+                cursor: pointer;
+            }
+            #search{
+                width: 540px;
+                /*background: yellow;*/
+                margin: 0;
+                padding: 0;
+                margin-left: 355px;
+                list-style: none;
+                display: none;
+                border: 1px solid #E3E5E4;
+            }
+            #search li{
+                line-height: 36px;
+                background: white;
+            }
+            #search li:hover{
+                background: #F0F0F0;
+            }
+            .li1{
+                text-indent: 4px;
+            }
+        </style>
+    <script src='/page/js/httpRequest.js'></script>
+</head>
+<body>
+<div class="box">
+    <div class="box_log">
+        <img src="../web/img/pachong.gif"/>
+    </div>
+    <div class="box_text">
+        <input class="lianjia-url" name="text" id="text" value="https://bj.lianjia.com/ershoufang/101108885741.html"/>
+        <input type="button" onclick="makeCraw()" id="btn" value="开始爬取" />
+        <p class='craw-result'></p>
+    </div>
+</div>
+<script>
+  function makeCraw(){
+    console.log('st')
+    src=document.querySelector('.lianjia-url').value
+    postData('/crawler/lianjia','src='+src,function(response){
+      document.querySelector('.craw-result').textContent=response
+    })
+  }
+</script>
+</body>
+</html>
