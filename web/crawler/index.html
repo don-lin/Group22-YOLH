@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crawler</title>
+  </head>
+  <body>
+    <div class="center-wrapper">
+      <div class="center-child">
+        <div class="ui action input">
+          <input
+            style="width: 300px; height: 50px"
+            type="text"
+            placeholder="Input Something..."
+          />
+          <button class="ui button" onclick="makeCraw();">Crawl now</button>
+        </div>
+        <div style="border: 1px solid blue; height: 200px">
+          <p>this is result</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="	https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+  />
+  <link rel="stylesheet" type="text/css" href="./css/center.css" />
+  <script>
+    function createCard(response) {
+      response.result = `
+        <div class="ui cards">
+        <div class="card">
+        <div class="content">
+        <div class="header">${response.province}</div>
+        <div class="meta">${response.city}</div>
+        <div class="description">Elliot Fu是一名来自纽约的电影工作者。 </div>
+        `;
+    }
+    function makeCraw() {
+      console.log('st');
+      src = document.querySelector('.lianjia-url').value;
+      postData('/crawler/lianjia', 'src=' + src, function (response) {
+        document.querySelector('.craw-result').textContent = response;
+      });
+    }
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</html>
