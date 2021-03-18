@@ -172,7 +172,6 @@ body {
 
 <script>
   function makeCraw(){
-    console.log('st')
     src=document.querySelector('.lianjia-url').value
     postData('/crawler/lianjia','src='+src,function(response){
       document.querySelector('.craw-result').textContent=response
@@ -185,6 +184,34 @@ body {
 <input class="lianjia-url" value='https://bj.lianjia.com/ershoufang/101108885741.html'>
 <button onclick="makeCraw();">开始爬取</button>
 <p class='craw-result'></p>
+
+
+<br>
+<script>
+  function queryDate(){
+    date=document.querySelector('#query-date').value
+    dateArr=date.split('-')
+    date=dateArr[2]+'/'+dateArr[1]+'/'+dateArr[0]
+    console.log(date)
+    postData('/query/date','date='+date,function(response){
+      allData=eval(response)
+      table=document.querySelector('.date-result')
+      table.HTMLcontent=''
+      for(var i=0;i<allData.length;i++){
+        var line=document.createElement('tr')
+        for(var j=0;j<allData[i].length;j++){
+          var data=document.createElement('td')
+          data.textContent=allData[i][j]
+          line.appendChild(data)
+        }
+        table.appendChild(line)
+      }
+    }) 
+  }
+</script>
+<input type="date" id="query-date" oninput="queryDate()"/>
+<table class='date-result' border="1"></table>
+
 
 
 
