@@ -1,6 +1,6 @@
 from flask import Flask, send_from_directory, request,jsonify
 from crawler import lianjia_crawler
-from ml.processing import queryDate
+from ml import *
 
 app = Flask(__name__, static_folder='static')
 
@@ -37,9 +37,17 @@ def send_crawler_result():
 
 @app.route('/query/date', methods=['POST', 'GET'])
 def send_date_query_result():
+    print('form is:',request.form)
     date = request.form.get('date')
+    county=request.form.get('county')
+    data=None
     if not date is None:
-        return jsonify(queryDate(date))
+        data=getDF()
+        data=queryDate(date,data)
+        if not county is None and county!='Any County':
+            data=queryCounty(county,data)
+        data=convertDfList(data)
+        return jsonify(data)
         return queryDate(date)
     return 'fail'
 

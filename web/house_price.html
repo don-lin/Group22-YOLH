@@ -1,0 +1,69 @@
+<title>Ireland House Price Trend Analyze</title>
+
+<link rel='stylesheet' href='/page/css/base-layout.css' tye='text/css'/>
+<script src='/page/js/httpRequest.js'></script>
+<div class="header">
+    <h1>Checking Ireland House Price Data</h1>
+    <p>Every data comes from <a href='https://www.propertypriceregister.ie/'>https://www.propertypriceregister.ie/</a></p>
+</div>
+<div class="topnav">
+    <input type="date" id='query-date' oninput="queryDate()">
+    <label>Select County</label>
+    <select id='query-county' oninput="queryDate()">
+        <option>Any County</option>
+        <option>Dublin</option>
+        <option>Laois</option>
+        <option>Meath</option>
+        <option>Kilkenny</option>
+        <option>Limerick</option>
+        <option>Carlow</option>
+        <option>Cork</option>
+        <option>Clare</option>
+        <option>Sligo</option>
+        <option>Cavan</option>
+        <option>Tipperary</option>
+        <option>Wicklow</option>
+        <option>Roscommon</option>
+        <option>Wexford</option>
+        <option>Mayo</option>
+        <option>Donegal</option>
+        <option>Longford</option>
+        <option>Galway</option>
+        <option>Offaly</option>
+        <option>Kildare</option>
+        <option>Waterford</option>
+        <option>Louth</option>
+        <option>Kerry</option>
+        <option>Westmeath</option>
+        <option>Monaghan</option>
+        <option>Leitrim</option>
+
+    </select>
+    <button onclick="queryDate();">search</button>
+</div>
+
+<script>
+    function queryDate(){
+      date=document.querySelector('#query-date').value
+      county=document.querySelector('#query-county').value
+      dateArr=date.split('-')
+      date=dateArr[2]+'/'+dateArr[1]+'/'+dateArr[0]
+      console.log(date)
+      postData('/query/date','date='+date+'&'+'county='+county,function(response){
+        allData=eval(response)
+        table=document.querySelector('.date-result')
+        table.innerHTML=''
+        for(var i=0;i<allData.length;i++){
+          var line=document.createElement('tr')
+          for(var j=0;j<allData[i].length;j++){
+            var data=document.createElement('td')
+            data.textContent=allData[i][j]
+            line.appendChild(data)
+          }
+          table.appendChild(line)
+        }
+      }) 
+    }
+  </script>
+  <br>
+  <table class='date-result' border="1"></table>
