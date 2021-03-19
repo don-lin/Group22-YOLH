@@ -7,7 +7,7 @@
     <p>Every data comes from <a href='https://www.propertypriceregister.ie/'>https://www.propertypriceregister.ie/</a></p>
 </div>
 <div class="topnav">
-    <input type="date" id='query-date' oninput="queryDate()">
+    <input type="date" id='query-date' value='2020-03-02' oninput="queryDate()">
     <label>Select County</label>
     <select id='query-county' oninput="queryDate()">
         <option>Any County</option>
@@ -64,6 +64,7 @@
         }
       }) 
     }
+    queryDate()
   </script>
   <br>
   <table class='date-result' border="1"></table>
