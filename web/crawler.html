@@ -1,0 +1,69 @@
+<!-- saved from url=(0014)about:internet -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com" />
+    <link href="page/crawler_files/crawler.css" rel="stylesheet" />
+    <link href="page/crawler_files/main.css" rel="stylesheet" />
+    <link href="page/crawler_files/pre.css" rel="stylesheet" />
+    <link href="page/crawler_files/style.css" rel="stylesheet" />
+  </head>
+  <style>
+    .card {
+      margin: auto;
+    }
+  </style>
+  <body>
+    <div class="s130">
+      <form>
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <div class="svg-wrapper"></div>
+            <input
+              id="search"
+              type="text"
+              placeholder="Please enter the link."
+            />
+          </div>
+          <div class="input-field second-wrap">
+            <button class="btn-search" type="button" onclick="makeCraw()">
+              Crawl now
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Titel Lorem</h2>
+          <p class="craw-result">test</p>
+        </div>
+      </form>
+    </div>
+    <script
+      type="text/javascript"
+      async=""
+      src="page/crawler_files/analytics.js"
+    ></script>
+    <script src="page/crawler_files/choices.js"></script>
+
+    <script async="" src="page/crawler_files/crawler.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23581568-13');
+      function makeCraw() {
+        console.log('st');
+        src = document.querySelector('.lianjia-url').value;
+        postData('/crawler/lianjia', 'src=' + src, function (response) {
+          document.querySelector('.craw-result').textContent = response;
+          console.log();
+        });
+      }
+    </script>
+  </body>
+</html>
