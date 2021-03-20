@@ -54,7 +54,7 @@
         table=document.querySelector('.date-result')
         table.innerHTML=''
         var headwrap = document.createElement('tr')
-        var headString = "Date of Sale (dd/mm/yyyy),Address,Postal Code,County,Price (),Not Full Market Price,VAT Exclusive,Description of Property,Property Size Description"
+        var headString = "Date of Sale,Address,Postal Code,County,Price (),Not Full Market Price,VAT Exclusive,Description of Property,Property Size Description"
         headString = headString.split(',')
         headString.forEach(e => {
           var data=document.createElement('th')

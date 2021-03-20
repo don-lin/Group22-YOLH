@@ -26,7 +26,9 @@ def send_hot2_map():
 @app.route('/search')
 def send_crawler_map():
     return send_from_directory('web', '搜索.html')
-
+@app.route('/crawler')
+def crawler():
+    return send_from_directory('web', 'crawler.html')
 @app.route('/page/<path:temp>')
 def send_static_file(temp):
     return send_from_directory("web", temp)
