@@ -53,6 +53,15 @@
         allData=eval(response)
         table=document.querySelector('.date-result')
         table.innerHTML=''
+        var headwrap = document.createElement('tr')
+        var headString = "Date of Sale (dd/mm/yyyy),Address,Postal Code,County,Price (),Not Full Market Price,VAT Exclusive,Description of Property,Property Size Description"
+        headString = headString.split(',')
+        headString.forEach(e => {
+          var data=document.createElement('th')
+          data.textContent = e
+          headwrap.appendChild(data)
+        })
+        table.appendChild(headwrap)
         for(var i=0;i<allData.length;i++){
           var line=document.createElement('tr')
           for(var j=0;j<allData[i].length;j++){
