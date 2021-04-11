@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request,jsonify
+from flask import Flask, send_from_directory, request,jsonify,redirect
 from crawler import lianjia_crawler
 from ml import *
 
@@ -8,6 +8,14 @@ app = Flask(__name__, static_folder='static')
 @app.route('/')
 def hello_world():
     return send_from_directory('web', '主页.html')
+
+@app.route('/buyers')
+def send_buyers_page():
+    return send_from_directory('web', 'buyers.html')
+
+@app.route('/index')
+def send_our_index():
+    return redirect('/page/woodo/index.html')
 
 
 @app.route('/map')
