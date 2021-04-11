@@ -25,7 +25,7 @@
 <script type="text/javascript">
     var map = new BMap.Map("container");          // 创建地图实例
 
-    var point = new BMap.Point(116.418261, 39.921984);
+    var point = new BMap.Point(116.488261, 39.891984);
     map.centerAndZoom(point, 15);             // 初始化地图，设置中心点坐标和地图级别
     map.enableScrollWheelZoom(); // 允许滚轮缩放
 
@@ -121,6 +121,11 @@
     {"lng":116.424579,"lat":39.914987,"count":57},
     {"lng":116.42076,"lat":39.915251,"count":70},
     {"lng":116.425867,"lat":39.918989,"count":8}];
+
+    for(var i=0;i<points.length;i++){
+        points[i]['lng']+=0.07;
+        points[i]['lat']-=0.028;
+    }    
 
     if(!isSupportCanvas()){
     	alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')
