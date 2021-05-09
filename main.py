@@ -4,9 +4,9 @@ from ml import *
 
 app = Flask(__name__, static_folder='static')
 
-
 @app.route('/')
 def hello_world():
+    return redirect('/page/yolh/index.html')
     return send_from_directory('web', '主页.html')
 
 @app.route('/buyers')
@@ -15,7 +15,7 @@ def send_buyers_page():
 
 @app.route('/index')
 def send_our_index():
-    return redirect('/page/woodo/index.html')
+    return redirect('/page/yolh/index.html')
 
 
 @app.route('/map')
