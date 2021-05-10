@@ -17,3 +17,6 @@ def convertDfList(df):
     return df.values.tolist()
 
 #ireland_df['Date of Sale (dd/mm/yyyy)']=='04/01/2010'
+
+if __name__=='__main__':
+    print("hello world")
