@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>House recommendation</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- fevicon -->
+    <link rel="icon" href="/page/img/logo.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <!-- Tweaks for older IEs-->
+    <script src='/page/js/httpRequest.js'></script> 
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" media="screen" />
+  </head>
+  <body>
+    <!--header section start -->
+    <div class="header_section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-lg-3">
+            <div class="logo"><img src="/page/img/logo.png" width="50" /></div>
+          </div>
+          <div class="col-sm-4 col-lg-5">
+            <div class="menu-area">
+              <nav class="navbar navbar-expand-lg">
+                <!-- <a class="navbar-brand" href="#">Menu</a> -->
+                <button
+                  class="navbar-toggler collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="fa fa-bars"></i>
+                </button>
+                <div
+                  class="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link active" href="index.html"
+                        >Home<span class="sr-only">(current)</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="buyer.html">House Buyers</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="seller.html">House Sellers</a>
+                    </li>
+                    <li class="#" href="#">
+                      <a class="nav-link" href="house_price.html"
+                        >Check Dataset</a
+                      >
+                    </li>
+                    <li class="nav-item" href="#">
+                      <a class="nav-link" href="/search">Use Crawlers</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="col-sm-8 col-lg-4">
+            <div class="togle_3">
+              <div class="left_main">
+                <div class="menu_main">
+                  <a href="#" hidden="hidden"
+                    ><i class="fa fa-fw fa-user"></i> Login / Register</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header section end  -->
+    <!-- contact section start -->
+    <div class="layout_padding contact_section">
+      <div class="container">
+        <div class="contact_section_inner">
+          <div class="contact_main">
+            <div class="topnav">
+              <div class="nice-select" tabindex="0">
+                <span class="current">Any County</span>
+                <ul class="list" onclick="queryDate()">
+                  <li class="option selected" data-value="Any County">
+                    Any County
+                  </li>
+                  <li class="option focus" data-value="Dublin">Dublin</li>
+                  <li class="option focus" data-value="Laois">Laois</li>
+                  <li class="option focus" data-value="Meath">Meath</li>
+                  <li class="option focus" data-value="Kilkenny">Kilkenny</li>
+                  <li class="option focus" data-value="Limerick">Limerick</li>
+                  <li class="option focus" data-value="Carlow">Carlow</li>
+                  <li class="option focus" data-value="Cork">Cork</li>
+                  <li class="option focus" data-value="Clare">Clare</li>
+                  <li class="option focus" data-value="Sligo">Sligo</li>
+                  <li class="option focus" data-value="Cavan">Cavan</li>
+                  <li class="option focus" data-value="Tipperary">Tipperary</li>
+                  <li class="option focus" data-value="Wicklow">Wicklow</li>
+                  <li class="option focus" data-value="Roscommon">Roscommon</li>
+                  <li class="option focus" data-value="Wexford">Wexford</li>
+                  <li class="option focus" data-value="Mayo">Mayo</li>
+                  <li class="option focus" data-value="Donegal">Donegal</li>
+                  <li class="option focus" data-value="Longford">Longford</li>
+                  <li class="option focus" data-value="Galway">Galway</li>
+                  <li class="option focus" data-value="Offaly">Offaly</li>
+                  <li class="option focus" data-value="Kildare">Kildare</li>
+                  <li class="option focus" data-value="Waterford">Waterford</li>
+                  <li class="option focus" data-value="Louth">Louth</li>
+                  <li class="option focus" data-value="Kerry">Kerry</li>
+                  <li class="option focus" data-value="Westmeath">Westmeath</li>
+                  <li class="option focus" data-value="Monaghan">Monaghan</li>
+                  <li class="option focus" data-value="Leitrim">Leitrim</li>
+                  >>
+                </ul>
+              </div>
+              <input
+                type="date"
+                id="query-date"
+                value="2020-03-02"
+                oninput="queryDate()"
+                style="height: 50px"
+              />
+              <button
+                onclick="queryDate(); "
+                style="
+                  height: 50px;
+                  width: 120px;
+                  background-color: black;
+                  color: #fff;
+                "
+              >
+                search
+              </button>
+            </div>
+            <table class='date-result' border="1"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- javascript -->
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script>
+      function queryDate() {
+        date = document.querySelector('#query-date').value;
+        //county = document.querySelector('#query-county').value;
+        county=document.querySelector('.selected').getAttribute('data-value')
+        
+        dateArr = date.split('-');
+        date = dateArr[2] + '/' + dateArr[1] + '/' + dateArr[0];
+        console.log(date);
+        postData(
+          '/query/date',
+          'date=' + date + '&' + 'county=' + county,
+          function (response) {
+            allData = eval(response);
+            table = document.querySelector('.date-result');
+            table.innerHTML = '';
+            var headwrap = document.createElement('tr');
+            var headString =
+              'Date of Sale,Address,Postal Code,County,Price (),Not Full Market Price,VAT Exclusive,Description of Property,Property Size Description';
+            headString = headString.split(',');
+            headString.forEach((e) => {
+              var data = document.createElement('th');
+              data.textContent = e;
+              headwrap.appendChild(data);
+            });
+            table.appendChild(headwrap);
+            for (var i = 0; i < allData.length; i++) {
+              var line = document.createElement('tr');
+              for (var j = 0; j < allData[i].length; j++) {
+                var data = document.createElement('td');
+                data.textContent = allData[i][j];
+                line.appendChild(data);
+              }
+              table.appendChild(line);
+            }
+          }
+        );
+      }
+      queryDate();
+    </script>
+  </body>
+</html>
