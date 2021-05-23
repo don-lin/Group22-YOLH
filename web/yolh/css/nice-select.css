@@ -20,7 +20,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 50%;
+  width: 100%;
   cursor: pointer;
   font-family: inherit;
   font-weight: normal;

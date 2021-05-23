@@ -17,6 +17,11 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!-- style css -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+  *{
+    transition: none;
+  }
+</style>
 <!-- Responsive-->
 <link rel="stylesheet" href="css/responsive.css">
 <!-- fevicon -->
@@ -29,6 +34,11 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="css/jquery.fancybox.min.css" media="screen">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=y3Gq0U9RVIVkOBnxReIcNFFBZi1qV8f7"></script>
+<!--引用JQuery-->
+<script crossorigin="anonymous" integrity="sha384-LVoNJ6yst/aLxKvxwp6s2GAabqPczfWh6xzm38S/YtjUyZ+3aTKOnD/OJVGYLZDl" src="https://lib.baomitu.com/jquery/3.5.0/jquery.min.js"></script>
+
+
 
 </head>
 <body>
@@ -119,9 +129,10 @@
                 </div>
               </div>
             </div>
-            <div class="massage_box">
-              <div class="row">
 
+            <div class="massage_box">
+
+              <div class="row">
                 <div class="col-sm-6 col-lg-3">
                 <label>Number of kitchens</label>
                                <input type="number" class="email-bt" placeholder="Number of kitchens" id="kitchen-num" name="Email">
@@ -143,10 +154,18 @@
                   </select>
 
                 </div>
-                
-                
-                <br>
-                <div class="col-sm-8">
+              </div>
+
+                <div class="row">
+                <div class="col-sm-6 col-lg-3"> 
+                  <label>Location name</label>
+                  
+                  <textarea class="email-bt" id="site" placeholder="house location name" style="height: 50px;">
+
+                  </textarea>
+                  </div>
+
+                <div class="col-sm-3" style="width: 2500px;">
                   <label>Machine Learning model</label><br>
                   <select hidden='hidden' id='model'>
                     <option class="option focus" value="dtree" onclick="console.log('you click decision tree')">Decision Tree</option>
@@ -159,12 +178,15 @@
                   </select>
                 </div>
                 <br>
+                <button class="send_bt" onclick='estimatePrice()'>Estimate Price</button>
+
                 
-                <iframe src="/hot2" style="width:500px;height:500px"></iframe>
+          <style type="text/css"> 
+            #container{height:30vh; width: 30vw;}
+        </style>
+      <br><br>
                 <div class="col-sm-4">
                   <!-- <button class="send_bt" onclick='er = document.querySelector("#estimate-result");console.log("abc"); er.removeAttribute("hidden");var ha=document.querySelector("#house-area").value; ha=parseFloat(ha); var temp=Math.random()*60000+20000; temp=Math.floor(temp*100); temp/=100; temp*=ha; er.textContent="Your house price shold be: "+temp+"￥";'>Estimate Price</button> -->
-
-                  <button class="send_bt" onclick='estimatePrice()'>Estimate Price</button>
 
                   <script src='/page/js/httpRequest.js'></script>
                   <script>
@@ -199,6 +221,16 @@
                   
                   <h1 style="margin-top: 60px;" hidden='hidden' id='estimate-result'>We think it worth<br>: 12,153,195.13￥</h1>
                 </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-4 col-lg-3">
+                  <div id="container">
+                  </div>
+                </div>
+
+
               </div>
             </div>
           </div>
@@ -238,8 +270,173 @@
          $(".fancybox").fancybox({
          openEffect: "none",
          closeEffect: "none"
-         });
-         </script>  
+         })
+        });
+      </script>  
+
+
+
+<script>
+
+  // 展示地图
+  var map = new BMap.Map("container");           // 创建地图实例
+  var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
+  map.centerAndZoom(point, 17);                 // 初始化地图，设置中心点坐标和地图级别
+  map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+ //添加控件
+ map.addControl(new BMap.NavigationControl()); // 平移缩放控件map
+ map.addControl(new BMap.ScaleControl()); // 比例尺控件
+ map.addControl(new BMap.MapTypeControl()); // map类型（平面、卫星、三维）
+
+
+ // 增添标注
+ var point1 = new BMap.Point(116.403, 39.915);
+ var point2 = new BMap.Point(116.401, 39.915);
+ var point3 = new BMap.Point(116.400, 39.915);
+ var point4 = new BMap.Point(116.399, 39.915);
+
+ // 标注点
+ var marker = new BMap.Marker(point1);
+ var marker2 = new BMap.Marker(point2);
+ map.addOverlay(marker);
+ map.addOverlay(marker2);
+
+// 添加事件
+ marker.addEventListener("click",function (){
+    alert("you clicked the tag");
+ });
+
+ // 标注图标（暂时加载不出来，还未解决）
+
+
+  var myIcon = new BMap.Icon('https://i.loli.net/2020/10/24/2kZOAuvlQISrwBP.png', new BMap.Size(50, 50), {
+      // 指定定位位置。
+      // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+      // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+      // 图标中央下端的尖角位置。
+      anchor: new BMap.Size(30, 30),
+      // 设置图片偏移。
+      // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+      // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+      imageOffset: new BMap.Size(0, 0 - 5)   // 设置图片偏移
+  });
+
+
+  var marker4 = new BMap.Marker(point4,{icon:myIcon});
+
+  map.addOverlay(marker4);
+
+
+  // 自定义标注
+  // 定义自定义覆盖物的构造函数
+  function SquareOverlay(center, length){
+      this._center = center;
+      this._length = length;
+     // this._color = color;
+  }
+  // 继承API的BMap.Overlay
+  SquareOverlay.prototype = new BMap.Overlay();
+  // 实现初始化方法
+  SquareOverlay.prototype.initialize = function(map){
+      // 保存map对象实例
+      this._map = map;
+      // 创建div元素，作为自定义覆盖物的容器
+      var img = document.createElement("img");
+      img.style.position = "absolute";
+      // 可以根据参数设置元素外观
+      img.style.width = this._length + "px";
+      img.style.height = this._length + "px";
+<!--        img.src = "https://i.loli.net/2020/10/24/JMmU5nBSjusrfa3.png";// 服务器url-->
+
+
+      // 将div添加到覆盖物容器中
+      map.getPanes().markerPane.appendChild(img);
+      // 保存div实例
+      this._img = img;
+      // 需要将div元素作为方法的返回值，当调用该覆盖物的show、
+      // hide方法，或者对覆盖物进行移除时，API都将操作此元素。
+      return img;
+  }
+  // 实现绘制方法
+  SquareOverlay.prototype.draw = function(){
+// 根据地理坐标转换为像素坐标，并设置给容器
+      var position = this._map.pointToOverlayPixel(this._center);
+      this._img.style.left = position.x - this._length / 2 + "px";
+      this._img.style.top = position.y - this._length / 2 + "px";
+  }
+  var infoWindow = new BMap.InfoWindow("数量：3",opts);
+
+  // 实现显示方法
+  SquareOverlay.prototype.show = function(){
+      if (this._img){
+          this._img.style.display = "";
+      }
+      this.click = function (){
+          console.log("hello");
+          var infoWindow = new BMap.InfoWindow("数量：3",opts);
+          map.openInfoWindow(infoWindow,point2);
+      }
+  }
+  // 实现隐藏方法
+  SquareOverlay.prototype.hide = function(){
+      if (this._img){
+          this._img.style.display = "none";
+      }
+  }
+  SquareOverlay.prototype.click= function(){
+      map.openInfoWindow(infoWindow,point2);
+  }
+
+  // 添加自定义方法
+  SquareOverlay.prototype.toggle = function(){
+      if (this._div){
+          if (this._img.style.display == ""){
+              this.hide();
+          }
+          else {
+              this.show();
+          }
+      }
+  }
+  var mySquare = new SquareOverlay(map.getCenter(), 100);
+  map.addOverlay(mySquare);
+  mySquare.addEventListener("click",function () {
+      console.log("进入测试。。");
+      SquareOverlay.hide();
+  });
+
+  // 设置信息框的属性
+  var opts = {
+      width :100,
+      height:40,
+      title:"Detail Info"
+  }
+  //添加点击事件，点击出现信息框
+  marker.addEventListener("click",function () {
+      map.openInfoWindow(infoWindow,point2);
+  });
+
+
+
+
+  // 获取经纬度
+  var geoc = new BMap.Geocoder();
+
+  map.addEventListener("click", function(e){
+      //通过点击百度地图，可以获取到对应的point, 由point的lng、lat属性就可以获取对应的经度纬度
+      var pt = e.point;
+      geoc.getLocation(pt, function(rs){
+          //addressComponents对象可以获取到详细的地址信息
+          var addComp = rs.addressComponents;
+          var site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+          //将对应的HTML元素设置值
+          $("#site").val(site);
+          $("#longitude").val(pt.lng);
+          $("#latitude").val(pt.lat);
+      });
+  });
+</script>
 
 </body>
 </html>
