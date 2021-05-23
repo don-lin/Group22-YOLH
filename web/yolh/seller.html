@@ -147,22 +147,16 @@
                 
                 <br>
                 <div class="col-sm-8">
-                  <form action="/action_page.php">
-                                <div class="form-group">
-                                  <div class="nice-select" tabindex="0">
-                                    <span class="current">Linear Regression</span>
-                                    <ul class="list model">
-                                      <li class="option focus" data-value="dtree" onclick="console.log('you click decision tree')">Decision Tree</li>
-                                      <li class="option selected" data-value="linear">Linear Regression</li>
-                                      <li class="option focus" data-value="svm">Support Vector Machine</li>
-                                      <li class="option focus" data-value="knn">K-NearestNeighbor</li>
-                                      <li class="option focus" data-value="rf">Random forest</li>
-                                      <li class="option focus" data-value="nn">Neural Network</li>
-                                      <li class="option focus" data-value="logistic">Logistic regression</li>
-                                    </ul>
-                                  </div>
-                                </div>
-                            </form>
+                  <label>Machine Learning model</label><br>
+                  <select hidden='hidden' id='model'>
+                    <option class="option focus" value="dtree" onclick="console.log('you click decision tree')">Decision Tree</option>
+                    <option class="option selected" value="linear">Linear Regression</option>
+                    <option class="option focus" value="svm">Support Vector Machine</option>
+                    <option class="option focus" value="knn">K-NearestNeighbor</option>
+                    <option class="option focus" value="rf">Random forest</option>
+                    <option class="option focus" value="nn">Neural Network</option>
+                    <option class="option focus" value="logistic">Logistic regression</option>
+                  </select>
                 </div>
                 <br>
                 
@@ -222,7 +216,7 @@
         result['kitchen-num']=document.querySelector('#kitchen-num').value
         result['bathroom-num']=document.querySelector('#bathroom-num').value
         result['direction']=document.querySelector('#direction').value
-        result['mode']=document.querySelector('.model .selected').getAttribute('data-value')
+        result['mode']=document.querySelector('#model').value
         
         return result
       }
