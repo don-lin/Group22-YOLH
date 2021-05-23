@@ -91,37 +91,110 @@
                                    <input type="number" class="email-bt" id="house-area" placeholder="House area(㎡)" name="Email">
                                 </div>
                 </div>
+                
                 <div class="col-sm-6 col-lg-3">
+                  <div class="form-group">
+                                  <label>latitude(y)</label>
+                                   <input type="number" class="email-bt" id="latitude" placeholder="latitude(y)" name="Email">
+                                </div>
+                </div>
+                
+                <div class="col-sm-6 col-lg-3">
+                  <div class="form-group">
+                                  <label>longitude(x)</label>
+                                   <input type="number" class="email-bt" id="longitude" placeholder="longitude(x)" name="Email">
+                                </div>
+                </div>
+                <!-- <div class="col-sm-6 col-lg-3">
                   <div class="form-group">
                     <label>Year of build(1960-2021)</label>
                                    <input type="number" class="email-bt" placeholder="Year of build(1960-2021)" name="Email">
                                 </div>
-                </div>
+                </div> -->
                 <div class="col-sm-6 col-lg-3">
                   <div class="form-group">
                     <label>Number of rooms</label>
-                                   <input type="number" class="email-bt" placeholder="Number of rooms" name="Email">
+                                   <input type="number" class="email-bt" placeholder="Number of rooms" id="room-num" name="Email">
                                 </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  
                 </div>
               </div>
             </div>
             <div class="massage_box">
               <div class="row">
+
+                <div class="col-sm-6 col-lg-3">
+                <label>Number of kitchens</label>
+                               <input type="number" class="email-bt" placeholder="Number of kitchens" id="kitchen-num" name="Email">
+                  </div>
+
+                <div class="col-sm-6 col-lg-3">
+                <label>Number of bathrooms</label>
+                              <input type="number" class="email-bt" placeholder="Number of bathrooms" id="bathroom-num" name="Email">
+                </div>
+                             
+                <div class="col-sm-6 col-lg-3"> 
+                <label>House direction</label>
+                <input type="number" class="email-bt" placeholder="House direction"  id="direction" name="Email">
+                </div>
+                
+                
+                <br>
                 <div class="col-sm-8">
                   <form action="/action_page.php">
                                 <div class="form-group">
-                                  <label>Floor</label>
-                                  <textarea class="massage-bt" placeholder="Floor" rows="5" id="comment" name="text"></textarea>
-                                  <div class="nice-select" tabindex="0"><span class="current">Linear Regression</span><ul class="list"><li class="option focus" data-value="ccd" onclick="er.textContent='Your house price should be: ￥14,121,353.79'">Decision Tree</li><li class="option selected" data-value="abb">Linear Regression</li><li class="option focus" data-value="ccd">Support Vector Machine</li></ul></div>
+                                  <div class="nice-select" tabindex="0">
+                                    <span class="current">Linear Regression</span>
+                                    <ul class="list">
+                                      <li class="option focus" data-value="dtree" onclick="console.log('you click decision tree')">Decision Tree</li>
+                                      <li class="option selected" data-value="linear">Linear Regression</li>
+                                      <li class="option focus" data-value="svm">Support Vector Machine</li>
+                                      <li class="option focus" data-value="knn">K-NearestNeighbor</li>
+                                      <li class="option focus" data-value="rf">Random forest</li>
+                                      <li class="option focus" data-value="nn">Neural Network</li>
+                                      <li class="option focus" data-value="logistic">Logistic regression</li>
+                                    </ul>
+                                  </div>
                                 </div>
                             </form>
                 </div>
+                <br>
+                
                 <iframe src="/hot2" style="width:500px;height:500px"></iframe>
                 <div class="col-sm-4">
-                  <button class="send_bt" onclick='er = document.querySelector("#estimate-result");console.log("abc"); er.removeAttribute("hidden");var ha=document.querySelector("#house-area").value; ha=parseFloat(ha); var temp=Math.random()*60000+20000; temp=Math.floor(temp*100); temp/=100; temp*=ha; er.textContent="Your house price shold be: "+temp+"￥";'>Estimate Price</button>
+                  <!-- <button class="send_bt" onclick='er = document.querySelector("#estimate-result");console.log("abc"); er.removeAttribute("hidden");var ha=document.querySelector("#house-area").value; ha=parseFloat(ha); var temp=Math.random()*60000+20000; temp=Math.floor(temp*100); temp/=100; temp*=ha; er.textContent="Your house price shold be: "+temp+"￥";'>Estimate Price</button> -->
+
+                  <button class="send_bt" onclick='estimatePrice()'>Estimate Price</button>
+
+                  <script src='/page/js/httpRequest.js'></script>
+                  <script>
+                  function estimatePrice(){
+                    var inputData=getInputData()
+                    var query=''
+                    var first=true
+                    for(var i in inputData){
+                        console.log(i)
+                        var cData=i+'='+inputData[i]
+                        if(first){
+                          query+=cData
+                        }else{
+                          query+='&'+cData
+                        }
+                        first=false
+                    }
+
+                    postData('/query/price',query,function(response){
+                      console.log(response)
+                      pricePersquare=parseFloat(response)
+                      square=parseFloat(getInputData()['area'])
+                      console.log(pricePersquare,square)
+                      er = document.querySelector("#estimate-result");
+                      er.removeAttribute("hidden");
+                      temp=pricePersquare*square
+                      er.textContent="Your house price shold be: "+temp+"￥";
+
+                      })
+                  }
+                  </script>
                   
                   <h1 style="margin-top: 60px;" hidden='hidden' id='estimate-result'>We think it worth<br>: 12,153,195.13￥</h1>
                 </div>
@@ -131,6 +204,22 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function getInputData(){
+        var result={}
+        result['area']=document.querySelector('#house-area').value
+        result['latitude']=document.querySelector('#latitude').value
+        result['longitude']=document.querySelector('#longitude').value
+        result['room-num']=document.querySelector('#room-num').value
+        result['kitchen-num']=document.querySelector('#kitchen-num').value
+        result['bathroom-num']=document.querySelector('#bathroom-num').value
+        result['direction']=document.querySelector('#direction').value
+        result['mode']=document.querySelector('.selected').getAttribute('data-value')
+        
+        return result
+      }
+    </script>
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>

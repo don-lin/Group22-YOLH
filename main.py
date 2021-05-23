@@ -1,6 +1,8 @@
 from flask import Flask, send_from_directory, request,jsonify,redirect
 from crawler import lianjia_crawler
-from ml import *
+#from ml import *
+from processing import *
+from myhouse import *
 
 app = Flask(__name__, static_folder='static')
 
@@ -49,6 +51,35 @@ def send_crawler_result():
         return str(lianjia_crawler.getCrawlerResult(src))
     return 'fail'
 
+
+@app.route('/query/price', methods=['POST', 'GET'])
+def send_seller_info():
+    print(request.form)
+    f=request.form
+    x=float(f['longitude'])
+    y=float(f['latitude'])
+    area=float(f['area'])
+    direction=float(f['direction'])
+
+    data=[[x,y,0,direction,area]]
+
+    if(f['mode']=='linear'):
+        pred = linearclf.predict(data)        
+    if(f['mode']=='svm'):
+        pred = svmclf.predict(data)        
+    if(f['mode']=='knn'):
+        pred = knnclf.predict(data)        
+    if(f['mode']=='rf'):
+        pred = rfclf.predict(data)
+    if(f['mode']=='dtree'):
+        pred = decclf.predict(data)
+    if(f['mode']=='nn'):
+        pred = mlpclf.predict(data)
+    if(f['mode']=='logistic'):
+        pred = logclf.predict(data)
+    return str(pred[0])
+    return 'success'
+
 @app.route('/query/date', methods=['POST', 'GET'])
 def send_date_query_result():
     print('form is:',request.form)
@@ -66,6 +97,6 @@ def send_date_query_result():
     return 'fail'
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5000)
-    #app.run(debug=True,host='0.0.0.0',port=122)
+    #app.run(debug=True,port=5000)
+    app.run(debug=True,host='0.0.0.0',port=122)
 
