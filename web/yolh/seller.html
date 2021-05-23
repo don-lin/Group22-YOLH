@@ -185,7 +185,7 @@
             #container{height:30vh; width: 30vw;}
         </style>
       <br><br>
-                <div class="col-sm-4">
+                <div class="col-sm-8">
                   <!-- <button class="send_bt" onclick='er = document.querySelector("#estimate-result");console.log("abc"); er.removeAttribute("hidden");var ha=document.querySelector("#house-area").value; ha=parseFloat(ha); var temp=Math.random()*60000+20000; temp=Math.floor(temp*100); temp/=100; temp*=ha; er.textContent="Your house price shold be: "+temp+"￥";'>Estimate Price</button> -->
 
                   <script src='/page/js/httpRequest.js'></script>
@@ -213,13 +213,14 @@
                       er = document.querySelector("#estimate-result");
                       er.removeAttribute("hidden");
                       temp=pricePersquare*square
+                      console.log('square is',square)
                       er.textContent="Your house price shold be: "+temp+"￥";
 
                       })
                   }
                   </script>
                   
-                  <h1 style="margin-top: 60px;" hidden='hidden' id='estimate-result'>We think it worth<br>: 12,153,195.13￥</h1>
+                  <h1 hidden='hidden' id='estimate-result'>We think it worth<br>: 12,153,195.13￥</h1>
                 </div>
               </div>
 
