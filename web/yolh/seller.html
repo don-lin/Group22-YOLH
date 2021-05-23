@@ -134,7 +134,14 @@
                              
                 <div class="col-sm-6 col-lg-3"> 
                 <label>House direction</label>
-                <input type="number" class="email-bt" placeholder="House direction"  id="direction" name="Email">
+                <input type="number" hidden='hidden' class="email-bt" placeholder="House direction"  id="direction-input" name="Email">
+                  <select hidden='hidden' id='direction'>
+                    <option value='0'>east</option>
+                    <option value='1'>west</option>
+                    <option value='2'>north</option>
+                    <option value='3'>south</option>
+                  </select>
+
                 </div>
                 
                 
@@ -144,7 +151,7 @@
                                 <div class="form-group">
                                   <div class="nice-select" tabindex="0">
                                     <span class="current">Linear Regression</span>
-                                    <ul class="list">
+                                    <ul class="list model">
                                       <li class="option focus" data-value="dtree" onclick="console.log('you click decision tree')">Decision Tree</li>
                                       <li class="option selected" data-value="linear">Linear Regression</li>
                                       <li class="option focus" data-value="svm">Support Vector Machine</li>
@@ -215,7 +222,7 @@
         result['kitchen-num']=document.querySelector('#kitchen-num').value
         result['bathroom-num']=document.querySelector('#bathroom-num').value
         result['direction']=document.querySelector('#direction').value
-        result['mode']=document.querySelector('.selected').getAttribute('data-value')
+        result['mode']=document.querySelector('.model .selected').getAttribute('data-value')
         
         return result
       }
