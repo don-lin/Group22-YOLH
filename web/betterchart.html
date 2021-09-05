@@ -1,0 +1,62 @@
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+</head>
+
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+</body>
+
+<script>
+    d3.csv("http://localhost:122/page/average_price.csv", function(err, rows){
+
+function unpack(rows, key) {
+return rows.map(function(row) { return row[key]; });
+}
+
+
+var trace1 = {
+type: "scatter",
+mode: "lines",
+name: 'price per m2',
+x: unpack(rows, 'time'),
+y: unpack(rows, 'price per m2'),
+line: {color: '#17BECF'}
+}
+
+var data = [trace1];
+
+var layout = {
+title: 'House average price in Beijing Chaoyang District per square meter',
+xaxis: {
+  autorange: true,
+  rangeselector: {buttons: [
+      {
+        count: 1,
+        label: '1m',
+        step: 'month',
+        stepmode: 'backward'
+      },
+      {
+        count: 6,
+        label: '6m',
+        step: 'month',
+        stepmode: 'backward'
+      },
+      {step: 'all'}
+    ]},
+  rangeslider: {range: ['2011-02-17', '2020-02-16']},
+  type: 'date'
+},
+yaxis: {
+  autorange: true,
+  range: [86.8700008333, 138.870004167],
+  type: 'linear'
+}
+};
+
+Plotly.newPlot('myDiv', data, layout);
+})
+
+</script>

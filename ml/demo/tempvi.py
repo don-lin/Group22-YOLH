@@ -141,7 +141,12 @@ print('lasso R2:',calculateR2(lasso_pred,y_test))
 print('random forest R2:',calculateR2(rf_pred,y_test))
 print('Neural Network R2:',calculateR2(mlp_pred,y_test))
 
-print('linear regression cof:')
-print (linearclf.intercept_)
-for i in linearclf.coef_:
-    print (i)
+import graphviz
+from sklearn import tree
+# DOT data
+dot_data = tree.export_graphviz(decclf, out_file='a.png',
+                                filled=True)
+
+# Draw graph
+graph = graphviz.Source(dot_data, format="png") 
+graph.render("decision_tree_graphivz")

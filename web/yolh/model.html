@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>House recommendation</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content=""> 
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="/page/js/httpRequest.js"></script>
+
+<style>
+  *{
+    transition: none;
+  }
+</style>
+<!-- Responsive-->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- fevicon -->
+<link rel="icon" href="/page/img/logo.png" type="image/gif" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!-- owl stylesheets --> 
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/jquery.fancybox.min.css" media="screen">
+
+<style type="text/css">
+    ul,li{list-style: none;margin:0;padding:0;float:left;}
+    html{height:100%}
+    body{height:100%;margin:0px;padding:0px;font-family:"微软雅黑";}
+    #container{height:500px;width:100%;}
+    #r-result{width:100%;}
+</style>
+
+
+</head>
+<body>
+  <!--header section start -->
+  <div class="header_section">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12 col-lg-3">
+            <div class="logo"><img src="/page/img/logo.png" width="50"></div>
+          </div>
+          <div class="col-sm-4 col-lg-5">
+            <div class="menu-area">
+                    <nav class="navbar navbar-expand-lg ">
+                        <!-- <a class="navbar-brand" href="#">Menu</a> -->
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a> </li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="buyer.html">Buyers</a></li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="seller.html">Sellers</a></li>
+                               <li class="#" href="#">
+      	                        <a class="nav-link" href="house_price.html">Dataset</a></li>
+                               <li class="nav-item" href="#">
+      	                        <a class="nav-link" href="crawler.html">Crawlers</a></li>
+                                <li class="nav-item" href="#">
+                                 <a class="nav-link" href="model.html">Model</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+          </div>
+          <div class="col-sm-8 col-lg-4">
+            <div class="togle_3">
+                  <div class="left_main">
+                     <div class="menu_main">
+                        <a href="#" hidden='hidden'><i class="fa fa-fw fa-user"></i> Login / Register</a>
+                     </div>
+                  </div>
+               </div>
+          </div>
+
+    </div>
+    </div>
+  </div>
+
+
+  <div class="layout_padding contact_section">
+    <div class="container">
+      <div class="contact_section_inner">
+        <div class="contact_main">
+          <h1 class="contact_text">Model Evaluation</h1>
+          <div class="input_main">
+
+          </div>
+          <div class="massage_box">
+            <div class="row">
+              <div class="col-sm-10">
+                
+                <style>
+                  td{
+                    width: 200px;
+                    color: black;
+                    font-size: large;
+                    text-align:center;
+                  }
+                </style>
+                <table border="1">
+                  <tr>
+                    <td>Model</td>	
+                    <td>RMSE value</td>
+                    <td>MSE value</td>
+                    <td>R2</td>	 	
+                  </tr>
+
+                  <tr><td>Decision Tree</td><td>	115.47624929371146</td><td>	13252.422169811323</td><td>	0.7093680478495772</td></tr>
+                  <tr><td>Linear Regression</td><td>	115.30173704393395</td><td>	13294.490565348491</td><td>	0.7084454678289486</td></tr>
+                  <tr><td>KNN</td><td>	136.98090694664177</td><td>	18763.76886792453</td><td>	0.5885015806237422</td></tr>
+                  <tr><td>SVM</td><td>	136.07475747779787</td><td>	18516.33962264151</td><td>	0.5939278222310704</td></tr>
+                  <tr><td>lasso</td><td>	115.1776527211393</td><td>	13265.891686351366</td><td>	0.7090726549141277</td></tr>
+                  <tr><td>random forest</td><td>	100.78628978039674</td><td>	10157.876207698106</td><td>	0.7772329198302573</td></tr>
+                  <tr><td>Neural Network</td><td>	108.79440161892218</td><td>	11836.221823619337</td><td>	0.7404259983114543</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-10">
+                <h1 class="contact_text">Model Explaination</h1>
+                <h3>
+                  linear regression:<br>
+                  y= 981.6387453115129*latitude  +   191.1359690887641*longitude +   -2.3955430216030074* house_type +  0.6493904703980959 * house_direction +  7.959449018902831* house_square  -122151.13659105732
+                  </h3>
+                  <div style="overflow-y: scroll; height: 300px;">
+                  <pre>
+Decision tree model Explaination
+|--- square <= 52.06
+|   |--- type <= 0.50
+|   |   |--- square <= 44.56
+|   |   |   |--- longitude <= 116.48
+|   |   |   |   |--- class: 125.0
+|   |   |   |--- longitude >  116.48
+|   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |--- square <= 39.73
+|   |   |   |   |   |   |--- class: 133.0
+|   |   |   |   |   |--- square >  39.73
+|   |   |   |   |   |   |--- class: 152.0
+|   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |--- class: 195.0
+|   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |--- class: 129.0
+|   |   |--- square >  44.56
+|   |   |   |--- latitude <= 39.88
+|   |   |   |   |--- square <= 45.88
+|   |   |   |   |   |--- square <= 45.30
+|   |   |   |   |   |   |--- class: 150.0
+|   |   |   |   |   |--- square >  45.30
+|   |   |   |   |   |   |--- class: 140.0
+|   |   |   |   |--- square >  45.88
+|   |   |   |   |   |--- square <= 48.09
+|   |   |   |   |   |   |--- class: 150.0
+|   |   |   |   |   |--- square >  48.09
+|   |   |   |   |   |   |--- class: 110.0
+|   |   |   |--- latitude >  39.88
+|   |   |   |   |--- square <= 46.67
+|   |   |   |   |   |--- square <= 46.12
+|   |   |   |   |   |   |--- class: 170.0
+|   |   |   |   |   |--- square >  46.12
+|   |   |   |   |   |   |--- square <= 46.34
+|   |   |   |   |   |   |   |--- class: 140.0
+|   |   |   |   |   |   |--- square >  46.34
+|   |   |   |   |   |   |   |--- square <= 46.41
+|   |   |   |   |   |   |   |   |--- class: 155.0
+|   |   |   |   |   |   |   |--- square >  46.41
+|   |   |   |   |   |   |   |   |--- square <= 46.51
+|   |   |   |   |   |   |   |   |   |--- class: 145.0
+|   |   |   |   |   |   |   |   |--- square >  46.51
+|   |   |   |   |   |   |   |   |   |--- class: 140.0
+|   |   |   |   |--- square >  46.67
+|   |   |   |   |   |--- square <= 49.48
+|   |   |   |   |   |   |--- square <= 46.94
+|   |   |   |   |   |   |   |--- class: 160.0
+|   |   |   |   |   |   |--- square >  46.94
+|   |   |   |   |   |   |   |--- square <= 47.14
+|   |   |   |   |   |   |   |   |--- class: 150.0
+|   |   |   |   |   |   |   |--- square >  47.14
+|   |   |   |   |   |   |   |   |--- square <= 47.16
+|   |   |   |   |   |   |   |   |   |--- class: 170.0
+|   |   |   |   |   |   |   |   |--- square >  47.16
+|   |   |   |   |   |   |   |   |   |--- square <= 47.53
+|   |   |   |   |   |   |   |   |   |   |--- class: 171.0
+|   |   |   |   |   |   |   |   |   |--- square >  47.53
+|   |   |   |   |   |   |   |   |   |   |--- class: 150.0
+|   |   |   |   |   |--- square >  49.48
+|   |   |   |   |   |   |--- square <= 51.19
+|   |   |   |   |   |   |   |--- class: 161.0
+|   |   |   |   |   |   |--- square >  51.19
+|   |   |   |   |   |   |   |--- class: 181.0
+|   |--- type >  0.50
+|   |   |--- square <= 28.41
+|   |   |   |--- square <= 26.81
+|   |   |   |   |--- direction <= 8.00
+|   |   |   |   |   |--- class: 30.0
+|   |   |   |   |--- direction >  8.00
+|   |   |   |   |   |--- direction <= 16.50
+|   |   |   |   |   |   |--- class: 20.0
+|   |   |   |   |   |--- direction >  16.50
+|   |   |   |   |   |   |--- class: 20.0
+|   |   |   |--- square >  26.81
+|   |   |   |   |--- direction <= 26.50
+|   |   |   |   |   |--- direction <= 12.00
+|   |   |   |   |   |   |--- class: 43.0
+|   |   |   |   |   |--- direction >  12.00
+|   |   |   |   |   |   |--- direction <= 21.50
+|   |   |   |   |   |   |   |--- class: 18.0
+|   |   |   |   |   |   |--- direction >  21.50
+|   |   |   |   |   |   |   |--- class: 43.0
+|   |   |   |   |--- direction >  26.50
+|   |   |   |   |   |--- class: 30.0
+|   |   |--- square >  28.41
+|   |   |   |--- longitude <= 116.48
+|   |   |   |   |--- square <= 43.14
+|   |   |   |   |   |--- square <= 36.64
+|   |   |   |   |   |   |--- class: 89.0
+|   |   |   |   |   |--- square >  36.64
+|   |   |   |   |   |   |--- square <= 41.74
+|   |   |   |   |   |   |   |--- class: 233.0
+|   |   |   |   |   |   |--- square >  41.74
+|   |   |   |   |   |   |   |--- square <= 42.42
+|   |   |   |   |   |   |   |   |--- class: 133.0
+|   |   |   |   |   |   |   |--- square >  42.42
+|   |   |   |   |   |   |   |   |--- class: 258.0
+|   |   |   |   |--- square >  43.14
+|   |   |   |   |   |--- direction <= 12.50
+|   |   |   |   |   |   |--- direction <= 7.50
+|   |   |   |   |   |   |   |--- direction <= 1.50
+|   |   |   |   |   |   |   |   |--- square <= 44.50
+|   |   |   |   |   |   |   |   |   |--- class: 144.0
+|   |   |   |   |   |   |   |   |--- square >  44.50
+|   |   |   |   |   |   |   |   |   |--- class: 249.0
+|   |   |   |   |   |   |   |--- direction >  1.50
+|   |   |   |   |   |   |   |   |--- direction <= 3.50
+|   |   |   |   |   |   |   |   |   |--- class: 119.0
+|   |   |   |   |   |   |   |   |--- direction >  3.50
+|   |   |   |   |   |   |   |   |   |--- class: 228.0
+|   |   |   |   |   |   |--- direction >  7.50
+|   |   |   |   |   |   |   |--- square <= 43.73
+|   |   |   |   |   |   |   |   |--- class: 246.0
+|   |   |   |   |   |   |   |--- square >  43.73
+|   |   |   |   |   |   |   |   |--- class: 225.0
+|   |   |   |   |   |--- direction >  12.50
+|   |   |   |   |   |   |--- square <= 43.94
+|   |   |   |   |   |   |   |--- class: 230.0
+|   |   |   |   |   |   |--- square >  43.94
+|   |   |   |   |   |   |   |--- direction <= 20.50
+|   |   |   |   |   |   |   |   |--- class: 245.0
+|   |   |   |   |   |   |   |--- direction >  20.50
+|   |   |   |   |   |   |   |   |--- direction <= 30.00
+|   |   |   |   |   |   |   |   |   |--- class: 129.0
+|   |   |   |   |   |   |   |   |--- direction >  30.00
+|   |   |   |   |   |   |   |   |   |--- class: 210.0
+|   |   |   |--- longitude >  116.48
+|   |   |   |   |--- square <= 42.01
+|   |   |   |   |   |--- square <= 40.38
+|   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |--- type <= 3.50
+|   |   |   |   |   |   |   |   |--- direction <= 12.00
+|   |   |   |   |   |   |   |   |   |--- square <= 40.30
+|   |   |   |   |   |   |   |   |   |   |--- class: 159.0
+|   |   |   |   |   |   |   |   |   |--- square >  40.30
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 261.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 118.0
+|   |   |   |   |   |   |   |   |--- direction >  12.00
+|   |   |   |   |   |   |   |   |   |--- square <= 39.89
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- square >  39.89
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 237.0
+|   |   |   |   |   |   |   |--- type >  3.50
+|   |   |   |   |   |   |   |   |--- square <= 32.98
+|   |   |   |   |   |   |   |   |   |--- class: 37.0
+|   |   |   |   |   |   |   |   |--- square >  32.98
+|   |   |   |   |   |   |   |   |   |--- square <= 38.41
+|   |   |   |   |   |   |   |   |   |   |--- class: 105.0
+|   |   |   |   |   |   |   |   |   |--- square >  38.41
+|   |   |   |   |   |   |   |   |   |   |--- class: 270.0
+|   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |--- direction <= 24.00
+|   |   |   |   |   |   |   |   |--- square <= 39.97
+|   |   |   |   |   |   |   |   |   |--- square <= 39.77
+|   |   |   |   |   |   |   |   |   |   |--- class: 177.0
+|   |   |   |   |   |   |   |   |   |--- square >  39.77
+|   |   |   |   |   |   |   |   |   |   |--- class: 149.0
+|   |   |   |   |   |   |   |   |--- square >  39.97
+|   |   |   |   |   |   |   |   |   |--- class: 162.0
+|   |   |   |   |   |   |   |--- direction >  24.00
+|   |   |   |   |   |   |   |   |--- class: 231.0
+|   |   |   |   |   |--- square >  40.38
+|   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |--- direction <= 4.00
+|   |   |   |   |   |   |   |   |--- class: 252.0
+|   |   |   |   |   |   |   |--- direction >  4.00
+|   |   |   |   |   |   |   |   |--- direction <= 12.00
+|   |   |   |   |   |   |   |   |   |--- square <= 41.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 242.0
+|   |   |   |   |   |   |   |   |   |--- square >  41.27
+|   |   |   |   |   |   |   |   |   |   |--- type <= 5.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 246.0
+|   |   |   |   |   |   |   |   |   |   |--- type >  5.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 260.0
+|   |   |   |   |   |   |   |   |--- direction >  12.00
+|   |   |   |   |   |   |   |   |   |--- square <= 41.37
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- square >  41.37
+|   |   |   |   |   |   |   |   |   |   |--- square <= 41.87
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- square >  41.87
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |--- class: 108.0
+|   |   |   |   |--- square >  42.01
+|   |   |   |   |   |--- type <= 1.50
+|   |   |   |   |   |   |--- square <= 44.88
+|   |   |   |   |   |   |   |--- direction <= 30.00
+|   |   |   |   |   |   |   |   |--- square <= 44.00
+|   |   |   |   |   |   |   |   |   |--- class: 205.0
+|   |   |   |   |   |   |   |   |--- square >  44.00
+|   |   |   |   |   |   |   |   |   |--- square <= 44.16
+|   |   |   |   |   |   |   |   |   |   |--- class: 163.0
+|   |   |   |   |   |   |   |   |   |--- square >  44.16
+|   |   |   |   |   |   |   |   |   |   |--- square <= 44.54
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 355.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  44.54
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 167.0
+|   |   |   |   |   |   |   |--- direction >  30.00
+|   |   |   |   |   |   |   |   |--- class: 435.0
+|   |   |   |   |   |   |--- square >  44.88
+|   |   |   |   |   |   |   |--- direction <= 9.50
+|   |   |   |   |   |   |   |   |--- class: 285.0
+|   |   |   |   |   |   |   |--- direction >  9.50
+|   |   |   |   |   |   |   |   |--- square <= 45.87
+|   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |   |--- square >  45.87
+|   |   |   |   |   |   |   |   |   |--- class: 330.0
+|   |   |   |   |   |--- type >  1.50
+|   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |--- direction <= 9.00
+|   |   |   |   |   |   |   |   |--- square <= 46.93
+|   |   |   |   |   |   |   |   |   |--- square <= 44.80
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 135.0
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 249.0
+|   |   |   |   |   |   |   |   |   |--- square >  44.80
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- square >  46.93
+|   |   |   |   |   |   |   |   |   |--- square <= 49.85
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 258.0
+|   |   |   |   |   |   |   |   |   |--- square >  49.85
+|   |   |   |   |   |   |   |   |   |   |--- class: 170.0
+|   |   |   |   |   |   |   |--- direction >  9.00
+|   |   |   |   |   |   |   |   |--- type <= 4.00
+|   |   |   |   |   |   |   |   |   |--- square <= 47.75
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |   |--- square >  47.75
+|   |   |   |   |   |   |   |   |   |   |--- square <= 48.59
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- square >  48.59
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |--- type >  4.00
+|   |   |   |   |   |   |   |   |   |--- square <= 45.17
+|   |   |   |   |   |   |   |   |   |   |--- class: 172.0
+|   |   |   |   |   |   |   |   |   |--- square >  45.17
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 100.0
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |--- square <= 48.48
+|   |   |   |   |   |   |   |   |   |--- square <= 43.25
+|   |   |   |   |   |   |   |   |   |   |--- class: 330.0
+|   |   |   |   |   |   |   |   |   |--- square >  43.25
+|   |   |   |   |   |   |   |   |   |   |--- type <= 5.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |   |--- type >  5.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 235.0
+|   |   |   |   |   |   |   |   |--- square >  48.48
+|   |   |   |   |   |   |   |   |   |--- type <= 3.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 32.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- direction >  32.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 280.0
+|   |   |   |   |   |   |   |   |   |--- type >  3.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 24.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  24.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |--- square <= 47.05
+|   |   |   |   |   |   |   |   |   |--- square <= 46.90
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 22.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 13
+|   |   |   |   |   |   |   |   |   |   |--- direction >  22.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- square >  46.90
+|   |   |   |   |   |   |   |   |   |   |--- square <= 46.95
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 102.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  46.95
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 185.0
+|   |   |   |   |   |   |   |   |--- square >  47.05
+|   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |--- square <= 51.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- square >  51.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 295.0
+|--- square >  52.06
+|   |--- square <= 68.78
+|   |   |--- type <= 0.50
+|   |   |   |--- square <= 60.51
+|   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |--- square <= 57.58
+|   |   |   |   |   |   |   |--- class: 210.0
+|   |   |   |   |   |   |--- square >  57.58
+|   |   |   |   |   |   |   |--- class: 221.0
+|   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |--- square <= 58.40
+|   |   |   |   |   |   |   |--- class: 186.0
+|   |   |   |   |   |   |--- square >  58.40
+|   |   |   |   |   |   |   |--- class: 220.0
+|   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |--- square <= 59.57
+|   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |--- square <= 57.62
+|   |   |   |   |   |   |   |   |--- square <= 54.39
+|   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |   |--- square >  54.39
+|   |   |   |   |   |   |   |   |   |--- square <= 56.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 216.0
+|   |   |   |   |   |   |   |   |   |--- square >  56.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |--- square >  57.62
+|   |   |   |   |   |   |   |   |--- square <= 58.28
+|   |   |   |   |   |   |   |   |   |--- class: 230.0
+|   |   |   |   |   |   |   |   |--- square >  58.28
+|   |   |   |   |   |   |   |   |   |--- square <= 59.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 191.0
+|   |   |   |   |   |   |   |   |   |--- square >  59.02
+|   |   |   |   |   |   |   |   |   |   |--- square <= 59.27
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  59.27
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 230.0
+|   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |--- longitude <= 116.49
+|   |   |   |   |   |   |   |   |--- class: 233.0
+|   |   |   |   |   |   |   |--- longitude >  116.49
+|   |   |   |   |   |   |   |   |--- class: 210.0
+|   |   |   |   |   |--- square >  59.57
+|   |   |   |   |   |   |--- class: 200.0
+|   |   |   |--- square >  60.51
+|   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |--- square <= 63.58
+|   |   |   |   |   |   |--- class: 220.0
+|   |   |   |   |   |--- square >  63.58
+|   |   |   |   |   |   |--- class: 235.0
+|   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |--- square <= 61.41
+|   |   |   |   |   |   |--- class: 210.0
+|   |   |   |   |   |--- square >  61.41
+|   |   |   |   |   |   |--- square <= 62.23
+|   |   |   |   |   |   |   |--- class: 201.0
+|   |   |   |   |   |   |--- square >  62.23
+|   |   |   |   |   |   |   |--- class: 224.0
+|   |   |--- type >  0.50
+|   |   |   |--- square <= 60.37
+|   |   |   |   |--- type <= 4.50
+|   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |--- square <= 52.60
+|   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |--- class: 167.0
+|   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |--- class: 305.0
+|   |   |   |   |   |   |--- square >  52.60
+|   |   |   |   |   |   |   |--- direction <= 25.00
+|   |   |   |   |   |   |   |   |--- direction <= 3.50
+|   |   |   |   |   |   |   |   |   |--- square <= 58.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 292.0
+|   |   |   |   |   |   |   |   |   |--- square >  58.27
+|   |   |   |   |   |   |   |   |   |   |--- square <= 58.36
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 288.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  58.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- direction >  3.50
+|   |   |   |   |   |   |   |   |   |--- square <= 56.83
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 12.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- direction >  12.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |--- square >  56.83
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 14.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 308.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  14.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |--- direction >  25.00
+|   |   |   |   |   |   |   |   |--- square <= 56.24
+|   |   |   |   |   |   |   |   |   |--- class: 290.0
+|   |   |   |   |   |   |   |   |--- square >  56.24
+|   |   |   |   |   |   |   |   |   |--- square <= 58.75
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 31.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 182.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  31.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 319.0
+|   |   |   |   |   |   |   |   |   |--- square >  58.75
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 30.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  30.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 321.0
+|   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |--- direction <= 6.50
+|   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |--- direction <= 1.50
+|   |   |   |   |   |   |   |   |   |--- class: 315.0
+|   |   |   |   |   |   |   |   |--- direction >  1.50
+|   |   |   |   |   |   |   |   |   |--- class: 120.0
+|   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |--- type <= 1.50
+|   |   |   |   |   |   |   |   |   |--- class: 420.0
+|   |   |   |   |   |   |   |   |--- type >  1.50
+|   |   |   |   |   |   |   |   |   |--- class: 195.0
+|   |   |   |   |   |   |--- direction >  6.50
+|   |   |   |   |   |   |   |--- square <= 54.17
+|   |   |   |   |   |   |   |   |--- square <= 52.76
+|   |   |   |   |   |   |   |   |   |--- class: 156.0
+|   |   |   |   |   |   |   |   |--- square >  52.76
+|   |   |   |   |   |   |   |   |   |--- direction <= 13.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 380.0
+|   |   |   |   |   |   |   |   |   |--- direction >  13.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 123.0
+|   |   |   |   |   |   |   |--- square >  54.17
+|   |   |   |   |   |   |   |   |--- square <= 55.98
+|   |   |   |   |   |   |   |   |   |--- direction <= 16.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 150.0
+|   |   |   |   |   |   |   |   |   |--- direction >  16.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 320.0
+|   |   |   |   |   |   |   |   |--- square >  55.98
+|   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |--- class: 228.0
+|   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |--- square <= 57.61
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 304.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  57.61
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |--- type >  4.50
+|   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |--- square <= 58.55
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- class: 180.0
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- square <= 55.53
+|   |   |   |   |   |   |   |   |   |   |--- class: 332.0
+|   |   |   |   |   |   |   |   |   |--- square >  55.53
+|   |   |   |   |   |   |   |   |   |   |--- square <= 57.86
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 225.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  57.86
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- square >  58.55
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- class: 185.0
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- direction <= 27.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 376.0
+|   |   |   |   |   |   |   |   |   |--- direction >  27.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 327.0
+|   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |--- square <= 56.77
+|   |   |   |   |   |   |   |   |--- direction <= 10.50
+|   |   |   |   |   |   |   |   |   |--- direction <= 3.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 192.0
+|   |   |   |   |   |   |   |   |   |--- direction >  3.00
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- direction >  10.50
+|   |   |   |   |   |   |   |   |   |--- square <= 53.35
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 263.0
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- square >  53.35
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |--- square >  56.77
+|   |   |   |   |   |   |   |   |--- square <= 59.88
+|   |   |   |   |   |   |   |   |   |--- square <= 58.90
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |   |--- square >  58.90
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |--- square >  59.88
+|   |   |   |   |   |   |   |   |   |--- square <= 60.19
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 248.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |--- square >  60.19
+|   |   |   |   |   |   |   |   |   |   |--- square <= 60.20
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 359.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  60.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |--- square <= 57.04
+|   |   |   |   |   |   |   |   |--- class: 271.0
+|   |   |   |   |   |   |   |--- square >  57.04
+|   |   |   |   |   |   |   |   |--- class: 320.0
+|   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |--- direction <= 26.00
+|   |   |   |   |   |   |   |   |--- square <= 56.85
+|   |   |   |   |   |   |   |   |   |--- class: 160.0
+|   |   |   |   |   |   |   |   |--- square >  56.85
+|   |   |   |   |   |   |   |   |   |--- square <= 57.43
+|   |   |   |   |   |   |   |   |   |   |--- class: 155.0
+|   |   |   |   |   |   |   |   |   |--- square >  57.43
+|   |   |   |   |   |   |   |   |   |   |--- class: 319.0
+|   |   |   |   |   |   |   |--- direction >  26.00
+|   |   |   |   |   |   |   |   |--- direction <= 32.00
+|   |   |   |   |   |   |   |   |   |--- class: 273.0
+|   |   |   |   |   |   |   |   |--- direction >  32.00
+|   |   |   |   |   |   |   |   |   |--- square <= 54.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 297.0
+|   |   |   |   |   |   |   |   |   |--- square >  54.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 308.0
+|   |   |   |--- square >  60.37
+|   |   |   |   |--- square <= 63.94
+|   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |--- type <= 2.50
+|   |   |   |   |   |   |   |   |--- square <= 62.27
+|   |   |   |   |   |   |   |   |   |--- class: 157.0
+|   |   |   |   |   |   |   |   |--- square >  62.27
+|   |   |   |   |   |   |   |   |   |--- square <= 62.39
+|   |   |   |   |   |   |   |   |   |   |--- class: 208.0
+|   |   |   |   |   |   |   |   |   |--- square >  62.39
+|   |   |   |   |   |   |   |   |   |   |--- class: 335.0
+|   |   |   |   |   |   |   |--- type >  2.50
+|   |   |   |   |   |   |   |   |--- direction <= 6.50
+|   |   |   |   |   |   |   |   |   |--- class: 268.0
+|   |   |   |   |   |   |   |   |--- direction >  6.50
+|   |   |   |   |   |   |   |   |   |--- direction <= 14.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 350.0
+|   |   |   |   |   |   |   |   |   |--- direction >  14.00
+|   |   |   |   |   |   |   |   |   |   |--- square <= 61.35
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 358.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  61.35
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |--- type <= 3.50
+|   |   |   |   |   |   |   |   |--- class: 152.0
+|   |   |   |   |   |   |   |--- type >  3.50
+|   |   |   |   |   |   |   |   |--- square <= 61.81
+|   |   |   |   |   |   |   |   |   |--- square <= 60.58
+|   |   |   |   |   |   |   |   |   |   |--- class: 147.0
+|   |   |   |   |   |   |   |   |   |--- square >  60.58
+|   |   |   |   |   |   |   |   |   |   |--- type <= 7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- type >  7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 435.0
+|   |   |   |   |   |   |   |   |--- square >  61.81
+|   |   |   |   |   |   |   |   |   |--- direction <= 27.00
+|   |   |   |   |   |   |   |   |   |   |--- type <= 7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- type >  7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 374.0
+|   |   |   |   |   |   |   |   |   |--- direction >  27.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 375.0
+|   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |--- direction <= 28.50
+|   |   |   |   |   |   |   |--- square <= 61.54
+|   |   |   |   |   |   |   |   |--- square <= 60.50
+|   |   |   |   |   |   |   |   |   |--- direction <= 12.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 368.0
+|   |   |   |   |   |   |   |   |   |--- direction >  12.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 363.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 410.0
+|   |   |   |   |   |   |   |   |--- square >  60.50
+|   |   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 325.0
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |   |--- square <= 60.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- square >  60.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |--- square >  61.54
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |--- square <= 62.64
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 210.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  62.64
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |--- square <= 62.23
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 245.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  62.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- direction <= 24.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 61.70
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- square >  61.70
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |--- direction >  24.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 233.0
+|   |   |   |   |   |   |--- direction >  28.50
+|   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |--- square <= 62.24
+|   |   |   |   |   |   |   |   |   |--- class: 355.0
+|   |   |   |   |   |   |   |   |--- square >  62.24
+|   |   |   |   |   |   |   |   |   |--- class: 252.0
+|   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |--- square <= 63.25
+|   |   |   |   |   |   |   |   |   |--- square <= 61.81
+|   |   |   |   |   |   |   |   |   |   |--- class: 193.0
+|   |   |   |   |   |   |   |   |   |--- square >  61.81
+|   |   |   |   |   |   |   |   |   |   |--- class: 210.0
+|   |   |   |   |   |   |   |   |--- square >  63.25
+|   |   |   |   |   |   |   |   |   |--- class: 373.0
+|   |   |   |   |--- square >  63.94
+|   |   |   |   |   |--- square <= 64.17
+|   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |--- class: 332.0
+|   |   |   |   |   |--- square >  64.17
+|   |   |   |   |   |   |--- square <= 67.75
+|   |   |   |   |   |   |   |--- direction <= 3.50
+|   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |--- square <= 66.39
+|   |   |   |   |   |   |   |   |   |   |--- class: 216.0
+|   |   |   |   |   |   |   |   |   |--- square >  66.39
+|   |   |   |   |   |   |   |   |   |   |--- class: 411.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |--- square <= 64.59
+|   |   |   |   |   |   |   |   |   |   |--- class: 149.0
+|   |   |   |   |   |   |   |   |   |--- square >  64.59
+|   |   |   |   |   |   |   |   |   |   |--- class: 247.0
+|   |   |   |   |   |   |   |--- direction >  3.50
+|   |   |   |   |   |   |   |   |--- square <= 64.21
+|   |   |   |   |   |   |   |   |   |--- direction <= 26.00
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 20.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 409.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  20.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 390.0
+|   |   |   |   |   |   |   |   |   |--- direction >  26.00
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 31.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  31.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 347.0
+|   |   |   |   |   |   |   |   |--- square >  64.21
+|   |   |   |   |   |   |   |   |   |--- square <= 64.84
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |--- square >  64.84
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |   |   |   |--- direction >  22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |--- square >  67.75
+|   |   |   |   |   |   |   |--- direction <= 12.00
+|   |   |   |   |   |   |   |   |--- class: 220.0
+|   |   |   |   |   |   |   |--- direction >  12.00
+|   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |--- square <= 68.29
+|   |   |   |   |   |   |   |   |   |   |--- class: 409.0
+|   |   |   |   |   |   |   |   |   |--- square >  68.29
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 29.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  29.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 409.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |--- class: 140.0
+|   |--- square >  68.78
+|   |   |--- square <= 89.78
+|   |   |   |--- square <= 71.84
+|   |   |   |   |--- square <= 71.49
+|   |   |   |   |   |--- square <= 69.90
+|   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |--- class: 507.0
+|   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |--- square <= 68.90
+|   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |--- class: 175.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |--- direction <= 29.50
+|   |   |   |   |   |   |   |   |   |   |--- type <= 7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 367.0
+|   |   |   |   |   |   |   |   |   |   |--- type >  7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 224.0
+|   |   |   |   |   |   |   |   |   |--- direction >  29.50
+|   |   |   |   |   |   |   |   |   |   |--- type <= 7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 403.0
+|   |   |   |   |   |   |   |   |   |   |--- type >  7.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 258.0
+|   |   |   |   |   |   |   |--- square >  68.90
+|   |   |   |   |   |   |   |   |--- square <= 69.18
+|   |   |   |   |   |   |   |   |   |--- class: 209.0
+|   |   |   |   |   |   |   |   |--- square >  69.18
+|   |   |   |   |   |   |   |   |   |--- type <= 7.00
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 4.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 228.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  4.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- type >  7.00
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 29.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 235.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  29.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |--- square >  69.90
+|   |   |   |   |   |   |--- square <= 71.42
+|   |   |   |   |   |   |   |--- direction <= 7.00
+|   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |--- class: 161.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |--- square <= 70.17
+|   |   |   |   |   |   |   |   |   |   |--- class: 389.0
+|   |   |   |   |   |   |   |   |   |--- square >  70.17
+|   |   |   |   |   |   |   |   |   |   |--- class: 265.0
+|   |   |   |   |   |   |   |--- direction >  7.00
+|   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |--- type <= 2.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 236.0
+|   |   |   |   |   |   |   |   |   |--- type >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 71.39
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- square >  71.39
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 420.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |--- class: 188.0
+|   |   |   |   |   |   |--- square >  71.42
+|   |   |   |   |   |   |   |--- square <= 71.44
+|   |   |   |   |   |   |   |   |--- direction <= 21.50
+|   |   |   |   |   |   |   |   |   |--- class: 361.0
+|   |   |   |   |   |   |   |   |--- direction >  21.50
+|   |   |   |   |   |   |   |   |   |--- class: 241.0
+|   |   |   |   |   |   |   |--- square >  71.44
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- class: 404.0
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- class: 270.0
+|   |   |   |   |--- square >  71.49
+|   |   |   |   |   |--- square <= 71.67
+|   |   |   |   |   |   |--- square <= 71.56
+|   |   |   |   |   |   |   |--- square <= 71.53
+|   |   |   |   |   |   |   |   |--- class: 175.0
+|   |   |   |   |   |   |   |--- square >  71.53
+|   |   |   |   |   |   |   |   |--- class: 225.0
+|   |   |   |   |   |   |--- square >  71.56
+|   |   |   |   |   |   |   |--- square <= 71.61
+|   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |--- class: 441.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |--- class: 210.0
+|   |   |   |   |   |   |   |--- square >  71.61
+|   |   |   |   |   |   |   |   |--- square <= 71.65
+|   |   |   |   |   |   |   |   |   |--- class: 396.0
+|   |   |   |   |   |   |   |   |--- square >  71.65
+|   |   |   |   |   |   |   |   |   |--- class: 460.0
+|   |   |   |   |   |--- square >  71.67
+|   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |--- class: 415.0
+|   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |--- square <= 71.69
+|   |   |   |   |   |   |   |   |--- class: 431.0
+|   |   |   |   |   |   |   |--- square >  71.69
+|   |   |   |   |   |   |   |   |--- class: 455.0
+|   |   |   |--- square >  71.84
+|   |   |   |   |--- square <= 72.85
+|   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |--- direction <= 21.50
+|   |   |   |   |   |   |   |   |--- square <= 71.98
+|   |   |   |   |   |   |   |   |   |--- class: 261.0
+|   |   |   |   |   |   |   |   |--- square >  71.98
+|   |   |   |   |   |   |   |   |   |--- class: 284.0
+|   |   |   |   |   |   |   |--- direction >  21.50
+|   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |--- class: 232.0
+|   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |--- class: 280.0
+|   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |--- square <= 71.94
+|   |   |   |   |   |   |   |   |--- class: 238.0
+|   |   |   |   |   |   |   |--- square >  71.94
+|   |   |   |   |   |   |   |   |--- square <= 72.40
+|   |   |   |   |   |   |   |   |   |--- class: 256.0
+|   |   |   |   |   |   |   |   |--- square >  72.40
+|   |   |   |   |   |   |   |   |   |--- class: 256.0
+|   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |--- square <= 72.39
+|   |   |   |   |   |   |   |--- square <= 72.30
+|   |   |   |   |   |   |   |   |--- class: 250.0
+|   |   |   |   |   |   |   |--- square >  72.30
+|   |   |   |   |   |   |   |   |--- class: 405.0
+|   |   |   |   |   |   |--- square >  72.39
+|   |   |   |   |   |   |   |--- class: 253.0
+|   |   |   |   |--- square >  72.85
+|   |   |   |   |   |--- type <= 5.50
+|   |   |   |   |   |   |--- square <= 73.36
+|   |   |   |   |   |   |   |--- square <= 73.10
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |--- class: 155.0
+|   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |--- square <= 72.90
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 456.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  72.90
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- direction <= 22.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 379.0
+|   |   |   |   |   |   |   |   |   |--- direction >  22.00
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 153.0
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 207.0
+|   |   |   |   |   |   |   |--- square >  73.10
+|   |   |   |   |   |   |   |   |--- class: 260.0
+|   |   |   |   |   |   |--- square >  73.36
+|   |   |   |   |   |   |   |--- direction <= 23.50
+|   |   |   |   |   |   |   |   |--- direction <= 6.00
+|   |   |   |   |   |   |   |   |   |--- class: 258.0
+|   |   |   |   |   |   |   |   |--- direction >  6.00
+|   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 15.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  15.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |--- class: 379.0
+|   |   |   |   |   |   |   |--- direction >  23.50
+|   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |--- direction <= 25.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 470.0
+|   |   |   |   |   |   |   |   |   |--- direction >  25.00
+|   |   |   |   |   |   |   |   |   |   |--- type <= 2.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 348.0
+|   |   |   |   |   |   |   |   |   |   |--- type >  2.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 348.0
+|   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |--- square <= 80.03
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 30.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  30.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 383.0
+|   |   |   |   |   |   |   |   |   |--- square >  80.03
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 27.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  27.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |--- type >  5.50
+|   |   |   |   |   |   |--- square <= 74.61
+|   |   |   |   |   |   |   |--- square <= 73.19
+|   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |--- direction <= 16.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 424.0
+|   |   |   |   |   |   |   |   |   |--- direction >  16.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 439.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |--- square <= 73.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 248.0
+|   |   |   |   |   |   |   |   |   |--- square >  73.00
+|   |   |   |   |   |   |   |   |   |   |--- square <= 73.12
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- square >  73.12
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 445.0
+|   |   |   |   |   |   |   |--- square >  73.19
+|   |   |   |   |   |   |   |   |--- type <= 8.00
+|   |   |   |   |   |   |   |   |   |--- direction <= 25.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 300.0
+|   |   |   |   |   |   |   |   |   |--- direction >  25.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 380.0
+|   |   |   |   |   |   |   |   |--- type >  8.00
+|   |   |   |   |   |   |   |   |   |--- direction <= 28.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- direction >  28.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 394.0
+|   |   |   |   |   |   |--- square >  74.61
+|   |   |   |   |   |   |   |--- square <= 78.64
+|   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |--- square <= 75.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 302.0
+|   |   |   |   |   |   |   |   |   |--- square >  75.05
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- direction >  22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 500.0
+|   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |--- direction <= 7.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 189.0
+|   |   |   |   |   |   |   |   |   |--- direction >  7.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 251.0
+|   |   |   |   |   |   |   |--- square >  78.64
+|   |   |   |   |   |   |   |   |--- square <= 83.41
+|   |   |   |   |   |   |   |   |   |--- square <= 81.60
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 6.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- direction >  6.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |--- square >  81.60
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- square >  83.41
+|   |   |   |   |   |   |   |   |   |--- square <= 86.67
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 450.0
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- square >  86.67
+|   |   |   |   |   |   |   |   |   |   |--- square <= 87.20
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 527.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  87.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |--- square >  89.78
+|   |   |   |--- square <= 102.72
+|   |   |   |   |--- type <= 10.50
+|   |   |   |   |   |--- square <= 96.72
+|   |   |   |   |   |   |--- direction <= 30.00
+|   |   |   |   |   |   |   |--- type <= 6.00
+|   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |--- class: 580.0
+|   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |--- direction <= 9.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 461.0
+|   |   |   |   |   |   |   |   |   |--- direction >  9.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 17.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 805.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  17.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- type >  6.00
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |   |   |--- class: 560.0
+|   |   |   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |   |   |--- class: 592.0
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- square <= 93.32
+|   |   |   |   |   |   |   |   |   |   |--- class: 375.0
+|   |   |   |   |   |   |   |   |   |--- square >  93.32
+|   |   |   |   |   |   |   |   |   |   |--- square <= 96.35
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 453.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  96.35
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 420.0
+|   |   |   |   |   |   |--- direction >  30.00
+|   |   |   |   |   |   |   |--- direction <= 32.00
+|   |   |   |   |   |   |   |   |--- square <= 96.22
+|   |   |   |   |   |   |   |   |   |--- class: 770.0
+|   |   |   |   |   |   |   |   |--- square >  96.22
+|   |   |   |   |   |   |   |   |   |--- class: 770.0
+|   |   |   |   |   |   |   |--- direction >  32.00
+|   |   |   |   |   |   |   |   |--- class: 757.0
+|   |   |   |   |   |--- square >  96.72
+|   |   |   |   |   |   |--- direction <= 7.00
+|   |   |   |   |   |   |   |--- type <= 6.00
+|   |   |   |   |   |   |   |   |--- square <= 97.88
+|   |   |   |   |   |   |   |   |   |--- class: 470.0
+|   |   |   |   |   |   |   |   |--- square >  97.88
+|   |   |   |   |   |   |   |   |   |--- square <= 98.23
+|   |   |   |   |   |   |   |   |   |   |--- class: 474.0
+|   |   |   |   |   |   |   |   |   |--- square >  98.23
+|   |   |   |   |   |   |   |   |   |   |--- square <= 100.49
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 527.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  100.49
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 378.0
+|   |   |   |   |   |   |   |--- type >  6.00
+|   |   |   |   |   |   |   |   |--- class: 300.0
+|   |   |   |   |   |   |--- direction >  7.00
+|   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |--- class: 309.0
+|   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |--- class: 200.0
+|   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |--- type <= 2.50
+|   |   |   |   |   |   |   |   |   |--- class: 491.0
+|   |   |   |   |   |   |   |   |--- type >  2.50
+|   |   |   |   |   |   |   |   |   |--- direction <= 34.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 100.27
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- square >  100.27
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |--- direction >  34.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 781.0
+|   |   |   |   |--- type >  10.50
+|   |   |   |   |   |--- type <= 14.00
+|   |   |   |   |   |   |--- square <= 90.24
+|   |   |   |   |   |   |   |--- class: 310.0
+|   |   |   |   |   |   |--- square >  90.24
+|   |   |   |   |   |   |   |--- square <= 91.07
+|   |   |   |   |   |   |   |   |--- class: 278.0
+|   |   |   |   |   |   |   |--- square >  91.07
+|   |   |   |   |   |   |   |   |--- class: 310.0
+|   |   |   |   |   |--- type >  14.00
+|   |   |   |   |   |   |--- class: 636.0
+|   |   |   |--- square >  102.72
+|   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |--- square <= 119.74
+|   |   |   |   |   |   |--- type <= 11.00
+|   |   |   |   |   |   |   |--- class: 355.0
+|   |   |   |   |   |   |--- type >  11.00
+|   |   |   |   |   |   |   |--- type <= 13.50
+|   |   |   |   |   |   |   |   |--- class: 537.0
+|   |   |   |   |   |   |   |--- type >  13.50
+|   |   |   |   |   |   |   |   |--- class: 547.0
+|   |   |   |   |   |--- square >  119.74
+|   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |--- class: 520.0
+|   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |--- class: 405.0
+|   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |--- latitude <= 39.88
+|   |   |   |   |   |   |   |   |--- class: 400.0
+|   |   |   |   |   |   |   |--- latitude >  39.88
+|   |   |   |   |   |   |   |   |--- type <= 11.50
+|   |   |   |   |   |   |   |   |   |--- class: 735.0
+|   |   |   |   |   |   |   |   |--- type >  11.50
+|   |   |   |   |   |   |   |   |   |--- class: 400.0
+|   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |--- square <= 114.20
+|   |   |   |   |   |   |--- direction <= 17.00
+|   |   |   |   |   |   |   |--- direction <= 7.00
+|   |   |   |   |   |   |   |   |--- class: 361.0
+|   |   |   |   |   |   |   |--- direction >  7.00
+|   |   |   |   |   |   |   |   |--- type <= 6.00
+|   |   |   |   |   |   |   |   |   |--- square <= 105.60
+|   |   |   |   |   |   |   |   |   |   |--- class: 697.0
+|   |   |   |   |   |   |   |   |   |--- square >  105.60
+|   |   |   |   |   |   |   |   |   |   |--- class: 800.0
+|   |   |   |   |   |   |   |   |--- type >  6.00
+|   |   |   |   |   |   |   |   |   |--- square <= 105.60
+|   |   |   |   |   |   |   |   |   |   |--- class: 618.0
+|   |   |   |   |   |   |   |   |   |--- square >  105.60
+|   |   |   |   |   |   |   |   |   |   |--- class: 893.0
+|   |   |   |   |   |   |--- direction >  17.00
+|   |   |   |   |   |   |   |--- type <= 2.50
+|   |   |   |   |   |   |   |   |--- class: 481.0
+|   |   |   |   |   |   |   |--- type >  2.50
+|   |   |   |   |   |   |   |   |--- direction <= 28.00
+|   |   |   |   |   |   |   |   |   |--- class: 681.0
+|   |   |   |   |   |   |   |   |--- direction >  28.00
+|   |   |   |   |   |   |   |   |   |--- class: 763.0
+|   |   |   |   |   |--- square >  114.20
+|   |   |   |   |   |   |--- square <= 143.69
+|   |   |   |   |   |   |   |--- square <= 137.15
+|   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |--- type <= 11.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 134.61
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 896.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  134.61
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- type >  11.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 133.51
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 878.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  133.51
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |--- type <= 9.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 23.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1127.0
+|   |   |   |   |   |   |   |   |   |   |--- direction >  23.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- type >  9.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 25.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- direction >  25.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 810.0
+|   |   |   |   |   |   |   |--- square >  137.15
+|   |   |   |   |   |   |   |   |--- square <= 138.48
+|   |   |   |   |   |   |   |   |   |--- type <= 11.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 23.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  23.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 640.0
+|   |   |   |   |   |   |   |   |   |--- type >  11.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 640.0
+|   |   |   |   |   |   |   |   |--- square >  138.48
+|   |   |   |   |   |   |   |   |   |--- type <= 11.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 141.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1090.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  141.18
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- type >  11.50
+|   |   |   |   |   |   |   |   |   |   |--- direction <= 22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- direction >  22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 546.0
+|   |   |   |   |   |   |--- square >  143.69
+|   |   |   |   |   |   |   |--- square <= 147.85
+|   |   |   |   |   |   |   |   |--- longitude <= 116.48
+|   |   |   |   |   |   |   |   |   |--- class: 1188.0
+|   |   |   |   |   |   |   |   |--- longitude >  116.48
+|   |   |   |   |   |   |   |   |   |--- type <= 11.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 144.73
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1400.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  144.73
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1367.0
+|   |   |   |   |   |   |   |   |   |--- type >  11.50
+|   |   |   |   |   |   |   |   |   |   |--- square <= 144.43
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1320.0
+|   |   |   |   |   |   |   |   |   |   |--- square >  144.43
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |--- square >  147.85
+|   |   |   |   |   |   |   |   |--- square <= 202.47
+|   |   |   |   |   |   |   |   |   |--- type <= 12.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1160.0
+|   |   |   |   |   |   |   |   |   |--- type >  12.00
+|   |   |   |   |   |   |   |   |   |   |--- type <= 14.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |   |--- type >  14.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1558.0
+|   |   |   |   |   |   |   |   |--- square >  202.47
+|   |   |   |   |   |   |   |   |   |--- direction <= 19.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 2228.0
+|   |   |   |   |   |   |   |   |   |--- direction >  19.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  39.89
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   </body>
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="js/jquery.fancybox.min.js"></script>
+
+</body>
+</html>

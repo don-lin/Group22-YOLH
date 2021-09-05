@@ -18,6 +18,10 @@
 <!-- style css -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
+<!-- 画高级折线图的JS -->
+<script src='/page/js/plotly-latest.min.js'></script>
+<script src='/page/js/d3.min.js'></script>
+
 <style>
   *{
     transition: none;
@@ -39,11 +43,6 @@
 <!-- 百度地图的js -->
 <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=y3Gq0U9RVIVkOBnxReIcNFFBZi1qV8f7"></script>
 <script type="text/javascript" src="//api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
-
-<!-- 画折线图的js -->
-<script src="/page/js/Chart.bundle.js"></script>
-<script src="/page/js/utils.js"></script>
-
 
 <style type="text/css">
     ul,li{list-style: none;margin:0;padding:0;float:left;}
@@ -75,13 +74,15 @@
                               <li class="nav-item active">
                                 <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a> </li>
                                <li class="nav-item">
-                                <a class="nav-link" href="buyer.html">House Buyers</a></li>
+                                <a class="nav-link" href="buyer.html">Buyers</a></li>
                                <li class="nav-item">
-                                <a class="nav-link" href="seller.html">House Sellers</a></li>
+                                <a class="nav-link" href="seller.html">Sellers</a></li>
                                <li class="#" href="#">
-      	                        <a class="nav-link" href="house_price.html">Check Dataset</a></li>
+      	                        <a class="nav-link" href="house_price.html">Dataset</a></li>
                                <li class="nav-item" href="#">
-      	                        <a class="nav-link" href="/search">Use Crawlers</a></li>
+      	                        <a class="nav-link" href="crawler.html">Crawlers</a></li>
+                                <li class="nav-item" href="#">
+                                 <a class="nav-link" href="model.html">Model</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -111,11 +112,7 @@
             <button type="button"  class="btn btn btn-info" onclick="closeHeatmap();">hide house recommendation</button>
         </div>
 
-
-
-        <div style="width:75%;">
-          <canvas id="canvaschart"></canvas>
-        </div>
+        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
 
         </body>
 
@@ -304,113 +301,63 @@
 
 </script>
 
+
 <script>
-  var config = {
-    type: 'line',
-    data: {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'dataset - real price',
-        data: [
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor()
-        ],
-        backgroundColor: window.chartColors.red,
-        borderColor: window.chartColors.red,
-        fill: false,
-        borderDash: [5, 5],
-        pointRadius: 15,
-        pointHoverRadius: 10,
-      }, {
-        label: 'model - estimated price',
-        data: [
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor()
-        ],
-        backgroundColor: window.chartColors.blue,
-        borderColor: window.chartColors.blue,
-        fill: false,
-        borderDash: [5, 5],
-        pointRadius: [2, 4, 6, 18, 0, 12, 20],
-      }, {
-        label: 'dataset - average price',
-        data: [
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor()
-        ],
-        backgroundColor: window.chartColors.green,
-        borderColor: window.chartColors.green,
-        fill: false,
-        pointHoverRadius: 30,
-      }, {
-        label: 'model - estimated average price',
-        data: [
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor(),
-          randomScalingFactor()
-        ],
-        backgroundColor: window.chartColors.yellow,
-        borderColor: window.chartColors.yellow,
-        fill: false,
-        pointHitRadius: 20,
-      }]
-    },
-    options: {
-      responsive: true,
-      legend: {
-        position: 'bottom',
-      },
-      hover: {
-        mode: 'index'
-      },
-      scales: {
-        xAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true,
-            labelString: 'Month'
-          }
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true,
-            labelString: 'Value'
-          }
-        }]
-      },
-      title: {
-        display: true,
-        text: 'House price trend visualize'
-      }
-    }
-  };
+    d3.csv("/page/average_price.csv", function(err, rows){
 
-  window.onload = function() {
-    var ctx = document.getElementById('canvaschart').getContext('2d');
-    window.myLine = new Chart(ctx, config);
-  };
+function unpack(rows, key) {
+return rows.map(function(row) { return row[key]; });
+}
+
+
+var trace1 = {
+type: "scatter",
+mode: "lines",
+name: 'price per m2',
+x: unpack(rows, 'time'),
+y: unpack(rows, 'price per m2'),
+line: {color: '#17BECF'}
+}
+
+var data = [trace1];
+
+var layout = {
+title: 'House average price in Beijing Chaoyang District per square meter',
+xaxis: {
+  autorange: true,
+  rangeselector: {buttons: [
+      {
+        count: 1,
+        label: '1m',
+        step: 'month',
+        stepmode: 'backward'
+      },
+      {
+        count: 6,
+        label: '6m',
+        step: 'month',
+        stepmode: 'backward'
+      },
+      {step: 'all'}
+    ]},
+  rangeslider: {range: ['2011-02-17', '2020-02-16']},
+  type: 'date'
+},
+yaxis: {
+  autorange: true,
+  range: [86.8700008333, 138.870004167],
+  type: 'linear'
+}
+};
+
+Plotly.newPlot('myDiv', data, layout);
+
+
+document.querySelector('.modebar-btn--logo').remove()
+})
+
+
 </script>
-
 
 </body>
 </html>
